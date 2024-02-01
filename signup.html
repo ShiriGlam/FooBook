@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="signup-box">
+            <img src="facebook_logo.png" alt="Facebook Logo" class="logo">
+            <h2 class="title">Sign Up for Facebook</h2>
+            <form>
+                <input type="text" placeholder="First name" class="input-field">
+                <input type="text" placeholder="Last name" class="input-field">
+                <input type="email" placeholder="Email address" class="input-field">
+                <input type="password" placeholder="New password" class="input-field">
+                <label for="birthdate" class="birthdate-label">Date of birth</label>
+                <input type="date" id="birthdate" class="input-field">
+                <label for="gender" class="gender-label">Gender</label>
+                <select id="gender" class="input-field">
+                    <option value="" disabled selected>Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <p class="terms">By clicking Sign Up, you agree to our <a href="#">Terms</a>, <a href="#">Data Policy</a> and <a href="#">Cookie Policy</a>. You may receive SMS notifications from us and can opt out at any time.</p>
+                <button type="submit" class="signup-button">Sign Up</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+    </div>
+</body>
+</html>

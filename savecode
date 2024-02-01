@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook-like Feed Screen</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Facebook</div>
+            <sec-menu>
+                <ul>
+                    <li>Home</li>
+                    <li>Profile</li>
+                    <li>Friends</li>
+                    <li>Groups</li>
+                </ul>
+            </sec-menu>
+            <div class="search">
+                <input type="text" placeholder="Search">
+                <button>Search</button>
+            </div>
+            
+        </header>
+        <main>
+            <div class="feed">
+                <div class="share">
+                <textarea placeholder="What's on your mind?"></textarea>
+                <button>Share</button>
+                
+            </div>
+                <!-- Feed content goes here -->
+            </div>
+        </main>
+        <aside class="right-menu">
+            <h2>Menu</h2>
+            <ul>
+                <li>Profile</li>
+                <li>Posts</li>
+                <li>Friends</li>
+                <li>Groups</li>
+            </ul>
+            <button class="mode-toggle">Dark Mode</button>
+        </aside>
+
+        
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
+//
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5; 
+    color: #333; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+     
+}
+
+
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px;
+    color:rgba(33, 33, 194, 0.813);
+}
+
+sec-menu ul {
+    list-style: none;
+    display: flex;
+}
+
+sec-menu ul li {
+    margin-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search {
+    display: -moz-inline-stack;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.search input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search button {
+    padding: 8px 16px;
+    background-color: #4267b2; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.share {
+    
+    width:100px;
+    height: 50px;
+    background-color: #fff;
+    margin-left: 20px;
+    
+}
+
+
+.share textarea {
+    width:200px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.share button {
+    padding: 10px 5px;
+    background-color: #4267b2;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.feed { 
+    background-color: #fff;
+}
+
+.right-menu {
+    width: 150px;
+    height: 1000px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 500px;
+}
+
+.right-menu ul {
+    list-style: none;
+    
+}
+
+.right-menu ul li {
+    margin-bottom: 10px;
+    height: 150px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.mode-toggle {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4267b2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
