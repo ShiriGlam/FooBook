@@ -1,0 +1,15 @@
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Label Styles */
+  .birthdate-label, .gender-label {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;
+  }

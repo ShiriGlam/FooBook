@@ -1,11 +1,11 @@
-// RightMenu.js
+
 import './Rightmenu.css';
 import React from 'react';
-
+import logo from './facebook_logo.png'
 function RightMenu() {
   return (
     <aside className="right-menu">
-      <img src="facebook_logo.png" alt="Facebook Logo" className="logo" />
+      <img src={logo} alt="Facebook Logo" className="logo" />
       <ul>
         <li>Profile</li>
         <li>Posts</li>

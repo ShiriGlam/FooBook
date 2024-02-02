@@ -1,0 +1,16 @@
+body {
+  font-family: Arial, sans-serif;
+  /*background-color: #f0f2f5;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100hv;
+  margin: 0;
+}
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: center;
+  }
+ 
