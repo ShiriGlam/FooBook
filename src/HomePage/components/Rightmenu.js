@@ -1,8 +1,12 @@
-
-import './Rightmenu.css';
 import React from 'react';
-import logo from './facebook_logo.png'
-function RightMenu() {
+import './Rightmenu.css';
+import logo from './facebook_logo.png';
+
+function RightMenu({ darkMode, toggleDarkMode }) {
+  const handleModeToggle = () => {
+    toggleDarkMode();
+  };
+
   return (
     <aside className="right-menu">
       <img src={logo} alt="Facebook Logo" className="logo" />
@@ -12,7 +16,9 @@ function RightMenu() {
         <li>Friends</li>
         <li>Groups</li>
       </ul>
-      <button className="mode-toggle">Dark Mode</button>
+      <button className="mode-toggle" onClick={handleModeToggle}>
+        {darkMode ? 'Light Mode' : 'Dark Mode'}
+      </button>
     </aside>
   );
 }

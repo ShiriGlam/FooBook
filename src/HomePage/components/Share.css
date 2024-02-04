@@ -1,9 +1,11 @@
+/* Share.css */
+
 .share {
     text-align: center;
     margin-bottom: 20px;
-}
-
-.share textarea {
+  }
+  
+  .share textarea {
     width: 300px;
     height: 50px;
     border: 1px solid #ccc;
@@ -12,9 +14,9 @@
     font-size: 16px;
     font-family: Arial, sans-serif;
     color: #333;
-}
-
-.share button {
+  }
+  
+  .share button {
     padding: 10px 5px;
     background-color: #4267b2;
     color: #fff;
@@ -22,4 +24,20 @@
     cursor: pointer;
     border-radius: 8px;
     font-size: 16px;
+  }
+
+  .share.dark-mode textarea {
+    color: #e6e1e1; /* White text color */
+    background-color: #333; /* Dark background color */
+    border-color: #666;
+  }
+  
+  /* Additional styles for dark mode slide */
+.share.dark-mode.slide {
+    background-color: #333; /* Dark background color */
+}
+.selected-photo {
+  max-width: 10px; /* Ensure the image doesn't exceed the container width */
+  max-height: 40px; /* Set a maximum height for better presentation */
+  margin-top: 10px; /* Add some margin for separation */
 }

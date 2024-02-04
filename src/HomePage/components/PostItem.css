@@ -1,89 +1,111 @@
+
 .post {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #fff;
-  }
-  
-  .post-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .author-info h3 {
-    margin: 0;
-    font-size: 16px;
-  }
-  
-  .author-info p {
-    margin: 0;
-    font-size: 14px;
-    color: #888;
-  }
-  
-  .post-content h2 {
-    margin-top: 0;
-    font-size: 18px;
-  }
-  
-  .post-content p {
-    margin: 10px 0;
-    font-size: 16px;
-  }
-  
-  .post-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    font-size: 14px;
-    color: #888;
-  }
-  
-  .post-actions a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .post-actions a:hover {
-    color: #1877f2;
-  }
-  
-  .comments {
-    margin-top: 20px;
-  }
-  
-  .comment {
-    margin-bottom: 10px;
-  }
-  
-  .comment p {
-    margin: 0;
-    font-size: 14px;
-  }
-  
-  .comment-author {
-    display: flex;
-    align-items: center;
-  }
-  
-  .comment-avatar {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-right: 5px;
-  }
-  
-  .comment-author-name {
-    font-weight: bold;
-    margin-right: 5px;
-  }
-  
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.author-info h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #1877f2; 
+}
+
+.author-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+}
+
+.post-content h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.post-content p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center; /* Center align actions */
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888;
+}
+
+.post-actions a {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 20px; /* Add some spacing between actions */
+}
+
+.post-actions a:hover {
+  color: #1877f2; /* Change color on hover */
+}
+
+.comments {
+  margin-top: 20px;
+}
+
+.comment {
+  margin-bottom: 10px;
+}
+
+.comment p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.comment-author {
+  display: flex;
+  align-items: center;
+}
+
+.comment-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.comment-author-name {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.post-image {
+  max-width: 100%; /* Ensure the image doesn't exceed the post width */
+  max-height: 300px; 
+  margin-top: 10px; 
+}
+.post {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff; /* Default background color */
+}
+
+/* Apply dark mode styles */
+.post.dark-mode {
+  background-color: #333; /* Dark mode background color */
+  color: #fff; /* Dark mode text color */
+}

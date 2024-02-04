@@ -34,3 +34,7 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.right-menu.dark-mode {
+    background-color: #333; /* Dark mode background color */
+    color: #a09bab; /* Dark mode text color */
+  }

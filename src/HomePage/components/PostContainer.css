@@ -1,0 +1,11 @@
+/* Add this to your CSS file */
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .post-image {
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 10px; /* Add some margin for separation */
+  }

@@ -1,19 +1,31 @@
 import React from 'react';
+import { useState } from 'react';
 import './PostItem.css'
-function PostItem({ post }) {
+function PostItem({ post, onLike, darkMode }) {
+  const { id, content, photo, author, timestamp } = post;
+  const [likes, setLikes] = useState(post.likes);
+
+  const handleLikeClick = () => {
+    setLikes(likes + 1);
+  };
+
   return (
-    <div className="post">
-      <div className="post-header">
-        <img src={post.author.avatar} alt={post.author.name} className="avatar" />
-        <div className="author-info">
-          <h3>{post.author.name}</h3>
-          <p>{post.date}</p>
+    <div className={`post ${darkMode ? 'dark-mode' : ''}`}>
+      <div className="post-content">
+        <div>{content}</div>
+        {photo && <img src={photo} alt="Post" className={darkMode ? 'dark-mode' : ''} />} {/* Apply dark mode styles to photo if exists */}
+      </div>
+      <div className="post-info">
+        <div className="author">{author}</div>
+        <div className="timestamp">{timestamp}</div>
+        <div className="like-section">
+          <button onClick={handleLikeClick}>{ 'Like'}</button> {/* Change button text based on dark mode */}
+          <span className={darkMode ? 'dark-mode' : ''}>{likes} Likes</span> {/* Apply dark mode styles to likes count */}
         </div>
       </div>
-      <h2>{post.title}</h2>
-      <p>{post.content}</p>
     </div>
   );
 }
+
 
 export default PostItem;
