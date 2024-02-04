@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './LoginLink.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function LoginLink({ onLoginClick }) {
+function LoginLink() {
   return (
     <div>
-      <p className="login-link">Already have an account? <a href="#" onClick={onLoginClick}>Log in</a></p>
+      <Link to="/login">Log in</Link>
     </div>
   );
 }
