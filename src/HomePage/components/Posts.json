@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "title": "Post Title 1",
+    "content": "This is the content of post 1.",
+    "author": "John Doe",
+    "date": "2024-02-01",
+    "imageUrl": "src/HomePage/components/facebook_logo.png",
+    "comments": [
+      {
+        "id": 101,
+        "author": "Alice",
+        "content": "Great post! Thanks for sharing.",
+        "date": "2024-02-02"
+      },
+      {
+        "id": 102,
+        "author": "Bob",
+        "content": "I agree with Alice. Well-written.",
+        "date": "2024-02-03"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Post Title 2",
+    "content": "This is the content of post 2.",
+    "author": "Jane Smith",
+    "date": "2024-02-05",
+    "imageUrl": "https://example.com/post2-image.jpg",
+    "comments": [
+      {
+        "id": 201,
+        "author": "Charlie",
+        "content": "Interesting post! I learned something new.",
+        "date": "2024-02-06"
+      }
+    ]
+  }
+]
+

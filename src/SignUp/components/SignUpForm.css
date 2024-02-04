@@ -1,0 +1,52 @@
+
+
+.title {
+  margin-bottom: 20px;
+  color: #1877f2;
+}
+
+
+.signup-box {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.signup-box form {
+  margin-top: 20px;
+}
+
+.signup-box label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.signup-box input[type="text"],
+.signup-box input[type="email"],
+.signup-box input[type="password"],
+.signup-box input[type="date"],
+.signup-box select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.signup-box button {
+  width: 100px;
+  padding: 10px;
+  background-color: #1877f2;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.signup-box button:hover {
+  background-color: #145da0;
+}

@@ -1,0 +1,36 @@
+.right-menu {
+    width: 150px;
+    height: 1000px;
+    padding: 30px;
+    margin-left: 50px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.right-menu ul {
+    list-style: none;
+}
+
+.right-menu ul li {
+    margin-bottom: 10px;
+    height: 150px;
+    font-size: 25px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.right-menu ul li:hover {
+    color: #1877f2;
+}
+
+.mode-toggle {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4267b2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

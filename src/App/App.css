@@ -1,0 +1,14 @@
+/* App.css */
+
+.container {
+  margin-top: 0%;
+  margin-bottom: 0;
+  margin-left: 1px;
+  margin-right: 1px;
+    width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+
+ 

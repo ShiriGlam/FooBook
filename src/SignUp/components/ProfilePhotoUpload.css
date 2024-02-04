@@ -1,0 +1,51 @@
+.profile-photo-upload {
+  margin-bottom: 20px;
+}
+
+.upload-button {
+  display: inline-block;
+  position: relative;
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.upload-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.default-photo {
+  width: 100%;
+  height: 100%;
+  background-color: #1877f2; /* Facebook blue */
+  border-radius: 50%;
+}
+
+.default-photo::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.default-photo::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  left: calc(50% - 20px);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 30px solid #2ecc71; /* Green color */
+  transform: translateY(-50%);
+}
