@@ -8,7 +8,7 @@ function RightMenu({ darkMode, toggleDarkMode }) {
   };
 
   return (
-    <aside className="right-menu">
+    <aside className={`right-menu ${darkMode ? 'dark-mode' : ''}`}>
       <img src={logo} alt="Facebook Logo" className="logo" />
       <ul>
         <li>Profile</li>
