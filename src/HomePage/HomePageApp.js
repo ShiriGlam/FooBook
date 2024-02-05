@@ -1,4 +1,3 @@
-// HomePage.js
 
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
@@ -14,15 +13,24 @@ function HomePageApp() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    fetchPosts(); // Fetch posts when component mounts
+    // Fetch initial posts from JSON file
+    fetch('Posts.json')
+      .then(response => response.json())
+      .then(data => {
+        // Create a deep copy of the data before setting it to state
+        const copiedData = JSON.parse(JSON.stringify(data));
+        setPosts(copiedData);
+      })
+      .catch(error => console.error('Error fetching posts:', error));
   }, []);
 
-  const fetchPosts = () => {
-    // Fetch posts data from Posts.json
-    fetch('HomePage/Posts.json')
-      .then(response => response.json())
-      .then(data => setPosts(data))
-      .catch(error => console.error('Error fetching posts:', error));
+  const handleLike = (postId) => {
+    setPosts(posts.map(post => {
+      if (post.id === postId) {
+        return { ...post, likes: post.likes + 1 };
+      }
+      return post;
+    }));
   };
 
   const toggleDarkMode = () => {
@@ -32,6 +40,9 @@ function HomePageApp() {
   const addPost = (newPost) => {
     setPosts([newPost, ...posts]);
   };
+   const deletePost = (postId) => {
+    setPosts(posts.filter(post => post.id !== postId));
+  };
 
   return (
     <div className={`home-page ${darkMode ? 'dark-mode' : ''}`}>
@@ -40,7 +51,7 @@ function HomePageApp() {
         <div className="left-content">
           <Search darkMode={darkMode} /> {/* Pass darkMode to Search */}
           <Share onPost={addPost} darkMode={darkMode} />{/* Pass darkMode to Search */}
-          <PostsContainer posts={posts} darkMode={darkMode} />{/* Pass darkMode to Search */}
+          <PostsContainer posts={posts} onLike={handleLike} onDelete={deletePost} darkMode={darkMode} />{/* Pass darkMode to Search */}
         </div>
         <Rightmenu darkMode={darkMode} toggleDarkMode={toggleDarkMode} /> {/* Pass darkMode and toggleDarkMode to Rightmenu */}
       </div>

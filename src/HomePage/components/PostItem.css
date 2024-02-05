@@ -60,7 +60,57 @@
 .post-actions a:hover {
   color: #1877f2; /* Change color on hover */
 }
+.comment-section {
+  margin-top: 20px;
+}
 
+.comment-section input[type="text"] {
+  width: calc(100% - 80px); /* Adjust width as needed */
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.comment-section button {
+  padding: 8px 12px;
+  background-color: #1877f2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment-section li {
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.comment-section li:first-child {
+  border-top: none;
+}
+
+.comment-section li span {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* Dark mode styles */
+.dark-mode .comment-section input[type="text"],
+.dark-mode .comment-section li {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+.dark-mode .comment-section li span {
+  color: #1877f2; /* Accent color for links in dark mode */
+}
 .comments {
   margin-top: 20px;
 }
@@ -91,13 +141,12 @@
   margin-right: 5px;
 }
 
-.post-image {
-  max-width: 100%; /* Ensure the image doesn't exceed the post width */
-  max-height: 300px; 
-  margin-top: 10px; 
+.post-content img {
+  max-width: 100%; /* Ensure images inside post content fit within the post container */
+  height: auto; /* Maintain aspect ratio */
 }
 .post {
-  border: 1px solid #ddd;
+  border: 10px solid #ddd;
   border-radius: 8px;
   margin-bottom: 20px;
   padding: 20px;
@@ -108,4 +157,17 @@
 .post.dark-mode {
   background-color: #333; /* Dark mode background color */
   color: #fff; /* Dark mode text color */
+}
+/* Delete button styles */
+.delete-button {
+  background-color: #4267b2;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    
+}
+
+.delete-button:hover {
+  color: #1061ca; 
 }

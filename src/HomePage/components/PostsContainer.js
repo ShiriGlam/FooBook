@@ -1,18 +1,19 @@
-
-
+// PostsContainer.js
 import React from 'react';
 import Post from './PostItem';
 
-function PostsContainer({ posts, onLike, darkMode }) {
+function PostsContainer({ posts, onLike, onDelete, darkMode }) {
   return (
-    <div className={`posts-container ${darkMode ? 'dark-mode' : ''}`}>
+    <div className="posts-container">
       {posts.map(post => (
-        <Post key={post.id} post={post} onLike={onLike} darkMode={darkMode} />
+        <Post key={post.id} post={post} onLike={onLike} onDelete={onDelete} darkMode={darkMode} />
       ))}
     </div>
   );
 }
 
 export default PostsContainer;
+
+
 
 
