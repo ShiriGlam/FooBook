@@ -3,7 +3,7 @@
     height: 1000px;
     padding: 30px;
     margin-left: 50px;
-    background-color: #f0f2f5;
+    background-color: #83a3d4;
     border-radius: 8px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -35,6 +35,6 @@
     cursor: pointer;
 }
 .right-menu.dark-mode {
-    background-color: #333; /* Dark mode background color */
-    color: #a09bab; /* Dark mode text color */
+    background-color: #333;
+    color: #a09bab; 
   }

@@ -5,7 +5,19 @@
     "photo": "https://example.com/photo1.jpg",
     "author": "John Doe",
     "timestamp": "2024-01-31T08:00:00Z",
-    "likes": 10
+    "likes": 10,
+    "comments": [
+      {
+        "id": 1,
+        "author": "Alice",
+        "content": "Great post!"
+      },
+      {
+        "id": 2,
+        "author": "Bob",
+        "content": "I agree!"
+      }
+    ]
   },
   {
     "id": 2,
