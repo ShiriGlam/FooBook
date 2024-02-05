@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(177, 196, 247);
+    background-color: rgb(185, 193, 215);
   }
   
   .main-content {
@@ -14,13 +14,13 @@
   
   .left-content {
     width: 600px; }
-    /* HomePageApp.css */
+   
 
 .dark-mode {
-  /* Add styles for dark mode */
-  background-color: #2f2c2c; /* Dark background color */
-  color: #fff; /* Light text color */
+ 
+  background-color: #2f2c2c; 
+  color: #fff; 
 
 }
 
-/* Add any other dark mode styles */
+
