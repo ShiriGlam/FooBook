@@ -17,8 +17,12 @@
   margin-bottom: 10px; /* Add margin bottom for separation */
 }
 
+.comment-section {
+  margin-top: 20px;
+}
+
 .comment-section input[type="text"] {
-  width: calc(100% - 120px); /* Reduce width for smaller input */
+  width: calc(100% - 30px); /* Adjust width as needed */
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -26,5 +30,30 @@
 }
 
 .comment-section button {
-  padding: 6px 12px; /* Reduce padding for smaller button */
+  padding: 8px 12px;
+  background-color: #1877f2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
+
+.comment-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment-section li {
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.comment-section li:first-child {
+  border-top: none;
+}
+
+.comment-section li span {
+  font-weight: bold;
+  margin-right: 5px;
+}
+

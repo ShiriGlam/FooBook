@@ -3,6 +3,7 @@
     "id": 1,
     "content": "This is the first post.",
     "photo": "https://example.com/photo1.jpg",
+    "profilePicture": "profile.jpg",
     "author": "John Doe",
     "timestamp": "2024-01-31T08:00:00Z",
     "likes": 10,
@@ -23,6 +24,7 @@
     "id": 2,
     "content": "This is the second post.",
     "photo": "https://example.com/photo2.jpg",
+    "profilePicture": "profile.jpg",
     "author": "Jane Smith",
     "timestamp": "2024-01-31T08:10:00Z",
     "likes": 5,
@@ -42,6 +44,7 @@
   {
     "id": 3,
     "content": "This is the third post.",
+    "profilePicture": "profile.jpg",
     "author": "Alice Johnson",
     "timestamp": "2024-01-31T08:20:00Z",
     "likes": 8,
@@ -62,6 +65,7 @@
     "id": 4,
     "content": "This is the fourth post.",
     "photo": "https://example.com/photo4.jpg",
+    "profilePicture": "profile.jpg",
     "author": "Bob Brown",
     "timestamp": "2024-01-31T08:30:00Z",
     "likes": 12,
@@ -82,6 +86,7 @@
     "id": 5,
     "content": "This is the fifth post.",
     "author": "Eva Lee",
+    "profilePicture": "profile.jpg",
     "timestamp": "2024-01-31T08:40:00Z",
     "likes": 3,
     "comments": [
@@ -102,6 +107,7 @@
     "content": "This is the sixth post.",
     "photo": "https://example.com/photo6.jpg",
     "author": "Mike Johnson",
+    "profilePicture": "profile.jpg",
     "timestamp": "2024-01-31T08:50:00Z",
     "likes": 7,
     "comments": [
@@ -122,6 +128,7 @@
     "content": "This is the seventh post.",
     "photo": "https://example.com/photo7.jpg",
     "author": "Sarah Clark",
+    "profilePicture": "profile.jpg",
     "timestamp": "2024-01-31T09:00:00Z",
     "likes": 15,
     "comments": [
@@ -160,6 +167,7 @@
     "id": 9,
     "content": "This is the ninth post.",
     "author": "Olivia White",
+    "profilePicture": "profile.jpg",
     "timestamp": "2024-01-31T09:20:00Z",
     "likes": 6,
     "comments": [
@@ -180,6 +188,7 @@
     "content": "This is the tenth post.",
     "photo": "https://example.com/photo10.jpg",
     "author": "Emily Davis",
+    "profilePicture": "profile.jpg",
     "timestamp": "2024-01-31T09:30:00Z",
     "likes": 18,
     "comments": [

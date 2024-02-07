@@ -1,10 +1,12 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PostItem.css'
 function PostItem({ post, onLike, onDelete, darkMode }) {
   const { id, content, photo, author, timestamp, likes, comments } = post;
   const [commentInput, setCommentInput] = useState('');
   const [postComments, setPostComments] = useState(comments);
+  useEffect(() => {
+    setPostComments(comments);
+  }, [comments]);
 
   const handleLikeClick = () => {
     onLike(id);
@@ -50,8 +52,9 @@ function PostItem({ post, onLike, onDelete, darkMode }) {
         <ul>
           {postComments.map(comment => (
             <li key={comment.id}>
+               <img src={comment.profilePicture} alt="Profile" className="profile-picture" />
               <span>{comment.author}: </span>
-              {comment.text}
+              {comment.content}
             </li>
           ))}
         </ul>
@@ -59,7 +62,6 @@ function PostItem({ post, onLike, onDelete, darkMode }) {
     </div>
   );
 }
-
 
 
 export default PostItem;
