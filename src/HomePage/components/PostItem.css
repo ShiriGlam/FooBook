@@ -56,4 +56,8 @@
   font-weight: bold;
   margin-right: 5px;
 }
-
+.profile-picture {
+  width: 30px; /* Adjust the size as needed */
+  height: 30px; /* Adjust the size as needed */
+  border-radius: 50%; /* Makes the image circular */
+}
