@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './PostItem.css';
 
-function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser }) {
+function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser, profilePhoto  }) {
   const { id, content, photo, author, timestamp, likes, comments, profilePicture } = post;
   const [isEditing, setIsEditing] = useState(false);
   const [editedPhoto, setEditedPhoto] = useState(photo);
@@ -41,7 +41,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser }) {
         id: Date.now(),
         author: currentUser,
         content: commentInput,
-        profilePicture: '' // You may provide a default profile picture here if needed
+        profilePicture: profilePhoto 
       };
       setPostComments([...postComments, newComment]);
       setCommentInput('');
@@ -61,10 +61,12 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser }) {
     <div className={`post ${darkMode ? 'dark-mode' : ''}`}>
       <div className="post-info">
         {/* Display profile photo and name of the author */}
-        <div className="author">
-          <img src={profilePicture} alt="Profile" className="profile-picture" />
+        {author === currentUser ? (
+            <img src={profilePhoto} alt="Profile" className="profile-picture" />
+          ) : (
+            <img src={profilePicture} alt="Profile" className="profile-picture" />
+          )}
           <span>{author}</span>
-        </div>
         <div className="timestamp">{timestamp}</div>
         <div className="like-section">
           <button className="like-button"onClick={handleLikeClick}>Like</button>

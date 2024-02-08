@@ -12,6 +12,8 @@ import PostsData from './Posts.json';
 function HomePageApp() {
   const [posts, setPosts] = useState(PostsData);
   const [darkMode, setDarkMode] = useState(false);
+  //set default picture:
+  const [profilePhoto, setProfilePhoto] = useState('https://live.staticflickr.com/65535/53514521001_61cc6ac52e_t.jpg');
   const { username } = useParams(); 
 
   const handleLike = (postId) => {
@@ -21,6 +23,9 @@ function HomePageApp() {
       }
       return post;
     }));
+  };
+  const handlePhotoChange = (newPhoto) => {
+    setProfilePhoto(newPhoto);
   };
 
   const toggleDarkMode = () => {
@@ -60,9 +65,11 @@ function HomePageApp() {
             onUpdate={updatePost}
             darkMode={darkMode}
             currentUser={username} 
+            profilePhoto={profilePhoto}
           />
         </div>
-        <Rightmenu darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <Rightmenu profilePhoto={profilePhoto}
+          onPhotoChange={handlePhotoChange} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       </div>
     </div>
   );

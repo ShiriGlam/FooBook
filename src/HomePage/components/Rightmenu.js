@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Rightmenu.css';
 import logo from './facebook_logo.png';
 
-function RightMenu({ darkMode, toggleDarkMode }) {
+
+
+function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange }) {
   const handleModeToggle = () => {
     toggleDarkMode();
   };
 
+  const handlePhotoChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        onPhotoChange(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <aside className={`right-menu ${darkMode ? 'dark-mode' : ''}`}>
+      <img src={profilePhoto} alt="Profile" className="profile-picture-user" />
+      
+      <input
+        id="profile-picture-upload"
+        type="file"
+        accept="image/*"
+        onChange={handlePhotoChange}
+        className="choose-pic"
+      />
       <img src={logo} alt="Facebook Logo" className="logo" />
       <ul>
         <li>Profile</li>
@@ -24,3 +46,4 @@ function RightMenu({ darkMode, toggleDarkMode }) {
 }
 
 export default RightMenu;
+
