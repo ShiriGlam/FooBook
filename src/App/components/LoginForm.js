@@ -34,17 +34,16 @@ function LoginForm() {
           type="text"
           placeholder="Username"
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(newValue) => setUsername(newValue)}
         />
         <InputField
           type="password"
           placeholder="Password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(newValue) => setPassword(newValue)}
         />
-        
-            <SubmitButton text="Log In" />
-          
+        { }
+        <SubmitButton text="Log In" />
       </form>
       <ForgotPassword />
       <Divider />

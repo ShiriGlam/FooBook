@@ -12,7 +12,7 @@ import PostsData from './Posts.json';
 function HomePageApp() {
   const [posts, setPosts] = useState(PostsData);
   const [darkMode, setDarkMode] = useState(false);
-  const { username } = useParams(); // Get username from route parameters
+  const { username } = useParams(); 
 
   const handleLike = (postId) => {
     setPosts(posts.map(post => {
@@ -32,14 +32,14 @@ function HomePageApp() {
   };
 
   const addPost = (newPost) => {
-    // Use the username from route parameters when adding a new post
+    
     const postWithUsername = { ...newPost, author: username };
     setPosts([postWithUsername, ...posts]);
   };
 
   return (
     <div className={`home-page ${darkMode ? 'dark-mode' : ''}`}>
-      <h1>Welcome, {username}!</h1>
+      <h1 className="welcome-message">Welcome, {username}!</h1>
       <Header />
       <div className="main-content">
         <div className="left-content">
@@ -50,7 +50,7 @@ function HomePageApp() {
             onLike={handleLike}
             onDelete={deletePost}
             darkMode={darkMode}
-            currentUser={username} // Pass currentUser to PostsContainer
+            currentUser={username} 
           />
         </div>
         <Rightmenu darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
