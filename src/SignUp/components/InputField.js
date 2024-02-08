@@ -1,49 +1,163 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InputField from '../../App/components/InputField';
-import './InputField.css'
-// First Name Input Field
-const FirstNameInput = () => {
-  return <InputField type="text" placeholder="First name" />;
-}
+import './InputField.css';
 
-// Last Name Input Field
-const LastNameInput = () => {
-  return <InputField type="text" placeholder="Last name" />;
-}
+const FirstNameInput = ({ value, onChange }) => {
+  const [error, setError] = useState('');
 
-// Email Input Field
-const EmailInput = () => {
-  return <InputField type="email" placeholder="Email address" />;
-}
+  const validate = (input) => {
+    if (input.trim() === '') {
+      setError('Please enter your first name.');
+      return false;
+    }
+    setError('');
+    return true;
+  };
 
-// Password Input Field
-const PasswordInput = () => {
-  return <InputField type="password" placeholder="New password" />;
-}
+  const handleChange = (e) => {
+    const inputValue = e.target.value;
+    validate(inputValue); // Validate the input value
+    if (onChange) onChange(inputValue); 
+  };
 
-// Date of Birth Input Field
-const DateOfBirthInput = () => {
+  return (
+    <>
+      <input
+        type="text"
+        placeholder="First name"
+        value={value} 
+        onChange={handleChange}
+      />
+      {error && <p className="error-message">{error}</p>}
+    </>
+  );
+};
+
+const LastNameInput = ({ value, onChange }) => {
+  const [error, setError] = useState('');
+  const validate = (input) => {
+    if (input.trim() === '') {
+      setError('Please enter your last name.');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
+  const handleChange = (e) => {
+    const inputValue = e.target.value;
+    validate(inputValue); 
+    if (onChange) onChange(inputValue); 
+  };
+
+  return (
+    <>
+      <input
+        type="text"
+        placeholder="Last name"
+        value={value} 
+        onChange={handleChange}
+      />
+      {error && <p className="error-message">{error}</p>}
+    </>
+  );
+};
+
+const EmailInput = ({ value, onChange }) => {
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const inputValue = e.target.value;
+    validate(inputValue); 
+    if (onChange) onChange(inputValue); 
+  };
+
+  const validate = (input) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(input)) {
+      setError('Please enter a valid email address.');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
+  return (
+    <>
+      <input
+        type="email"
+        placeholder="Email address"
+        value={value} 
+        onChange={handleChange}
+      />
+      {error && <p className="error-message">{error}</p>}
+    </>
+  );
+};
+
+const PasswordInput = ({ value, onChange }) => {
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const inputValue = e.target.value;
+    validate(inputValue); 
+    if (onChange) onChange(inputValue); 
+  };
+
+  const validate = (input) => {
+    if (input.length < 6) {
+      setError('Password must be at least 6 characters long.');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
+  return (
+    <>
+      <input
+        type="password"
+        placeholder="New password"
+        value={value} 
+        onChange={handleChange}
+      />
+      {error && <p className="error-message">{error}</p>}
+    </>
+  );
+};
+
+const DateOfBirthInput = ({ value, onChange }) => {
+  // No need for validation here
   return (
     <div>
-      <label htmlFor="birthdate" className="birthdate-label">Date of birth</label>
-      <input type="date" id="birthdate" className="input-field" />
+      <label htmlFor="birthdate" className="birthdate-label">
+        Date of birth
+      </label>
+      <input type="date" id="birthdate" className="input-field" value={value} onChange={onChange} />
     </div>
   );
-}
+};
+
+export default DateOfBirthInput;
 
 // Gender Input Field
-const GenderInput = () => {
+const GenderInput = ({ value, onChange }) => {
+  // No need for validation here
   return (
     <div>
-      <label htmlFor="gender" className="gender-label">Gender</label>
-      <select id="gender" className="input-field">
-        <option value="" disabled selected>Select your gender</option>
+      <label htmlFor="gender" className="gender-label">
+        Gender
+      </label>
+      <select id="gender" className="input-field" value={value} onChange={onChange}>
+        <option value="" disabled>
+          Select your gender
+        </option>
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="other">Other</option>
       </select>
     </div>
   );
-}
+};
 
 export { FirstNameInput, LastNameInput, EmailInput, PasswordInput, DateOfBirthInput, GenderInput };
