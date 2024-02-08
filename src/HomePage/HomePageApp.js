@@ -36,6 +36,14 @@ function HomePageApp() {
     const postWithUsername = { ...newPost, author: username };
     setPosts([postWithUsername, ...posts]);
   };
+  const updatePost = (postId, updatedContent) => {
+    setPosts(posts.map(post => {
+      if (post.id === postId) {
+        return { ...post, content: updatedContent };
+      }
+      return post;
+    }));
+  };
 
   return (
     <div className={`home-page ${darkMode ? 'dark-mode' : ''}`}>
@@ -49,6 +57,7 @@ function HomePageApp() {
             posts={posts}
             onLike={handleLike}
             onDelete={deletePost}
+            onUpdate={updatePost}
             darkMode={darkMode}
             currentUser={username} 
           />

@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './PostItem.css';
 
-function PostItem({ post, onLike, onDelete, darkMode, currentUser }) {
+function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser }) {
   const { id, content, photo, author, timestamp, likes, comments, profilePicture } = post;
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedPhoto, setEditedPhoto] = useState(photo);
+  const [editedContent, setEditedContent] = useState(content);
   const [commentInput, setCommentInput] = useState('');
   const [postComments, setPostComments] = useState(comments);
 
@@ -18,6 +21,20 @@ function PostItem({ post, onLike, onDelete, darkMode, currentUser }) {
     onDelete(id);
   };
 
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleSaveClick = () => {
+    onUpdate(id, editedContent);
+    setIsEditing(false);
+  };
+
+  const handleCancelClick = () => {
+    setEditedContent(content);
+    setIsEditing(false);
+  };
+
   const handleCommentSubmit = () => {
     if (commentInput.trim() !== '') {
       const newComment = {
@@ -30,7 +47,16 @@ function PostItem({ post, onLike, onDelete, darkMode, currentUser }) {
       setCommentInput('');
     }
   };
-
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setEditedPhoto(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   return (
     <div className={`post ${darkMode ? 'dark-mode' : ''}`}>
       <div className="post-info">
@@ -41,18 +67,44 @@ function PostItem({ post, onLike, onDelete, darkMode, currentUser }) {
         </div>
         <div className="timestamp">{timestamp}</div>
         <div className="like-section">
-          <button onClick={handleLikeClick}>Like</button>
+          <button className="like-button"onClick={handleLikeClick}>Like</button>
           <span className={darkMode ? 'dark-mode' : ''}>{likes} Likes</span>
         </div>
-        {currentUser === author && ( // Show delete button only for the current user's posts
+        {currentUser === author && (
           <div className="post-actions">
+            {isEditing ? (
+              <>
+                <button className="save-button"onClick={handleSaveClick}> Save</button>
+                <button onClick={handleCancelClick}>Cancel</button>
+              </>
+            ) : (
+              <button className="edit-button" onClick={handleEditClick}>Edit</button>
+            )}
             <button className="delete-button" onClick={handleDeleteClick}>Delete</button>
           </div>
         )}
       </div>
       <div className="post-content">
-        <div>{content}</div>
-        {photo && <img src={photo} alt="Post" className={`post-image ${darkMode ? 'dark-mode' : ''}`} />}
+        {isEditing ? (
+          <>
+            <textarea
+              value={editedContent}
+              onChange={(e) => setEditedContent(e.target.value)}
+              className="edit-textarea"
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="edit-image"
+            />
+          </>
+        ) : (
+          <>
+            <div>{editedContent}</div>
+            {editedPhoto && <img src={editedPhoto} alt="Post" className={`post-image ${darkMode ? 'dark-mode' : ''}`} />}
+          </>
+        )}
       </div>
       <div className="comment-section">
         <input
@@ -65,7 +117,6 @@ function PostItem({ post, onLike, onDelete, darkMode, currentUser }) {
         <ul>
           {postComments.map(comment => (
             <li key={comment.id}>
-              {/* Render profile picture if available */}
               {comment.profilePicture && <img src={comment.profilePicture} alt="Profile" className="profile-picture" />}
               <span>{comment.author}: </span>
               {comment.content}
@@ -78,3 +129,4 @@ function PostItem({ post, onLike, onDelete, darkMode, currentUser }) {
 }
 
 export default PostItem;
+

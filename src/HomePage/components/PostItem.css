@@ -61,3 +61,55 @@
   height: 30px; /* Adjust the size as needed */
   border-radius: 50%; /* Makes the image circular */
 }
+/* PostItem.css */
+
+
+.like-button {
+  background-color: transparent;
+  border: none;
+  color: #0e4c9e; /* Facebook blue */
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+
+
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #f02849; /* Facebook red */
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+.save-button {
+  
+  border: none;
+  border-radius: 5px;
+  color: #4166d6;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+  padding: 4px 4px;
+}
+.edit-image {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  color: #4166d6;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+  padding: 4px 4px;
+}
+
+.edit-button {
+  background-color: transparent;
+  border: none;
+  color: #165db9; /* Facebook blue */
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 8px;
+}
