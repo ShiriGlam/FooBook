@@ -1,15 +1,41 @@
 .home-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .main-content {
-    display: flex;
-    justify-content: space-between;
-    width: 800px; 
-    margin-top: 20px; 
-  }
-  
-  .left-content {
-    width: 600px; }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif; 
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  width: 100%; 
+  max-width: 2000px; 
+  margin-top: 20px;
+}
+
+.left-content {
+  width: 600px;
+}
+
+.right-content {
+  width: 300px; 
+}
+
+.dark-mode {
+  background-color: #18191a; 
+  color: #ffffff; 
+}
+
+.search {
+  margin-top: 10px; 
+  width: 100%; 
+  display: flex;
+  justify-content: center; 
+}
+.welcome-message {
+  font-size: 24px; 
+  color: #333; 
+  margin-top: 20px; 
+  text-align: center; 
+}

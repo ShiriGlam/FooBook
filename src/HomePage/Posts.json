@@ -1,0 +1,232 @@
+
+[
+  {
+    "id": 1,
+    "content": "My new home.",
+    "photo":"https://live.staticflickr.com/65535/52596725124_94395e1935_b.jpg"  ,
+    "author": "Noy_Shani",
+    "profilePicture": "https://live.staticflickr.com/65535/53243466367_6702b2f97c_m.jpg",
+    "timestamp": "2024-01-31T08:00:00Z",
+    "likes": 10,
+    "comments": [
+      {
+        "id": 1,
+        "author": "Alice",
+        "profilePicture":  "https://live.staticflickr.com/586/31460090703_03d349a7d7_m.jpg",
+        "content": "How pretty !"
+      },
+      {
+        "id": 2,
+        "author": "Bob",
+        "profilePicture": "https://live.staticflickr.com/65535/53514521001_61cc6ac52e_t.jpg" ,
+        "content": "I agree with Alice!"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "content": "This is my fav animal.",
+    "photo": "https://live.staticflickr.com/65535/53512287654_cb77466ff8_b.jpg",
+    "author": "Jane Smith",
+    "timestamp": "2024-01-31T08:10:00Z",
+    "likes": 5,
+    "comments": [
+      {
+        "id": 3,
+        "author": "Charlie",
+        "profilePicture": "https://live.staticflickr.com/2566/3720728928_e8cd29ed46_m.jpg",
+        "content": "Nice photo!"
+      },
+      {
+        "id": 4,
+        "author": "Liat shalom",
+        "profilePicture": "https://live.staticflickr.com/65535/53514042862_98820a228f_m.jpg" ,
+        "content": "Amazing!"
+      }
+  ]  },
+  {
+    "id": 3,
+    "content": "This is me",
+    "author": "Alice Johnson",
+    "photo": "https://live.staticflickr.com/65535/52997198901_c7828ccec6_m.jpg",
+    "timestamp": "2024-01-31T08:20:00Z",
+    "profilePicture": "https://live.staticflickr.com/65535/52997198901_c7828ccec6_m.jpg",
+    "likes": 8,
+    "comments": [
+      {
+        "id": 5,
+        "author": "Eve",
+        "profilePicture": "https://live.staticflickr.com/5540/9175129870_b152c61d45_m.jpg",
+        "content": "Beautiful!"
+      },
+      {
+        "id": 6,
+        "author": "Frank",
+        "profilePicture": "https://live.staticflickr.com/7811/47201035282_6d0bf7bf8c_m.jpg",
+        "content": "Lovely!"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "content": "So like this pic.",
+    "photo": "https://live.staticflickr.com/65535/53510644796_385d5fe673_b.jpg",
+    "author": "Liron_bar",
+    "profilePicture":"https://live.staticflickr.com/587/22152420864_252e9fb9b9_m.jpg" ,
+    "timestamp": "2024-01-31T08:30:00Z",
+    "likes": 12,
+    "comments": [
+      {
+        "id": 7,
+        "author": "Lilach shabtai",
+        "profilePicture": "https://live.staticflickr.com/65535/53512165366_a104cfbc81_m.jpg",
+        "content": "Nice shot!"
+      },
+      { 
+        "id": 8,
+        "author": "Harry",
+        "profilePicture": "https://live.staticflickr.com/65535/53480675650_1285bc4e69_m.jpg",
+        "content": "Fantastic!"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "content": "If you can dream it, you can do it.",
+    "author": "Eva_Lee",
+    "profilePicture":"https://live.staticflickr.com/789/40765724034_d1df113326_m.jpg" ,
+    "timestamp": "2024-01-31T08:40:00Z",
+    "likes": 3,
+    "comments": [
+      {
+        "id": 9,
+        "author": "Maor_Naor",
+        "profilePicture": "https://live.staticflickr.com/2946/15440803806_2c0870b813_m.jpg"         ,
+        "content": "Great content!"
+      },
+      {
+        "id": 10,
+        "author": "Roni_Haim",
+        "profilePicture": "https://live.staticflickr.com/2950/15277029219_498e5e3744_m.jpg",
+        "content": "That right!"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "content": "Me and my dog:).",
+    "photo": "https://live.staticflickr.com/4388/36727427375_eae165ac8f_m.jpg"    ,
+    "profilePicture":"https://live.staticflickr.com/4388/36727427375_eae165ac8f_m.jpg" ,
+    "author": "Henry Adam",
+    "timestamp": "2024-01-31T08:50:00Z",
+    "likes": 7,
+    "comments": [
+      {
+        "id": 11,
+        "author": "Kate",
+        "profilePicture": "https://live.staticflickr.com/8019/29616753990_8eca1485ee_m.jpg",
+        "content": "Nice shot!"
+      },
+      {
+        "id": 12,
+        "author": "Rona",
+        "profilePicture": "https://live.staticflickr.com/3606/3651637441_66d28582ab_m.jpg"         ,
+        "content": "Awesome! the best friend of the humen.."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "content": "My cute cat.",
+    "photo": "https://live.staticflickr.com/65535/50611496012_8337967218_m.jpg" ,
+    "author": "Sarah_Clark",
+    "timestamp": "2024-01-31T09:00:00Z",
+    "profilePicture":"https://live.staticflickr.com/65535/52621000565_edc0cfa9bd_m.jpg",
+    "likes": 15,
+    "comments": [
+      {
+        "id": 13,
+        "author": "Mia",
+        "profilePicture": "https://live.staticflickr.com/5667/21096803956_0de4685e62_m.jpg"         ,
+        "content": "how cute!"
+      },
+      {
+        "id": 14,
+        "author": "Noa",
+        "profilePicture": "https://live.staticflickr.com/5597/15463820175_7eb3b93924_m.jpg",
+        "content": "Awesome!"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "content": "Good Morning guys.",
+    "photo":"https://live.staticflickr.com/5645/21183523233_8be1aaf948_m.jpg",
+    "author": "David_Miller",
+    "timestamp": "2024-01-31T09:10:00Z",
+    "profilePicture": "https://live.staticflickr.com/65535/53514521001_61cc6ac52e_t.jpg" ,
+    "likes": 20,
+    "comments": [
+      {
+        "id": 15,
+        "author": "Olivia",
+        "profilePicture": "https://live.staticflickr.com/4192/34458528512_4913328796_m.jpg"         ,
+        "content": "Great Day David!"
+      },
+      {
+        "id": 16,
+        "author": "Peter",
+        "profilePicture": "https://live.staticflickr.com/2945/15463910535_b1d7c81a3c_m.jpg"         ,
+        "content": "have a nice day!"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "content": "look at view !.",
+    "photo":"https://live.staticflickr.com/65535/53480675650_1285bc4e69_m.jpg", 
+    "author": "Olivia_White",
+    "profilePicture":"https://live.staticflickr.com/3932/15000441494_f1f7869ece_m.jpg" ,
+    "timestamp": "2024-01-31T09:20:00Z",
+    "likes": 6,
+    "comments": [
+      {
+        "id": 17,
+        "author": "Shir_nahum",
+        "profilePicture": "https://live.staticflickr.com/5598/15463917965_015f372b4a_m.jpg" 
+        ,
+        "content": "Great view!"
+      },
+      {
+        "id": 18,
+        "author": "Shachar_shemtov",
+        "profilePicture": "https://live.staticflickr.com/3930/15463822635_5ba48fbbf4_m.jpg" ,
+        "content": "Awesome!"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "content": "Today is a beutiful day!!",
+    "photo": "https://live.staticflickr.com/65535/51338815076_2087973300_m.jpg" ,
+    "author": "Emily Davis",
+    "profilePicture":"https://live.staticflickr.com/65535/49953910893_9dc93a89de_m.jpg" ,
+    "timestamp": "2024-01-31T09:30:00Z",
+    "likes": 18,
+    "comments": [
+      {
+        "id": 19,
+        "author": "Sophia",
+        "profilePicture": "https://live.staticflickr.com/65535/53515296171_6a2614ff86_m.jpg" 
+        ,
+        "content": "wow!"
+      },
+      {
+        "id": 20,
+        "author": "Thomas",
+        "profilePicture": "https://live.staticflickr.com/65535/53514420432_33898f1431_m.jpg"         ,
+        "content": "where it was?"
+      }
+    ]
+  }
+]

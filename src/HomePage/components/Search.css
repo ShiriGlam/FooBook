@@ -4,6 +4,8 @@
     align-items: center;
     margin-right: 10px;
     margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .search input[type="text"] {
@@ -22,3 +24,11 @@
     border-radius: 5px;
     cursor: pointer;
 }
+.search.dark-mode input[type="text"] {
+    /* Dark mode styles for input */
+    color: #fff;
+    background-color: #333;
+    border-color: #666;
+  }
+  
+  

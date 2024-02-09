@@ -1,9 +1,11 @@
 import React from 'react';
 import './InputField.css'
-function InputField({ type, placeholder }) {
-  return (
-    <input type={type} placeholder={placeholder} className="input-field" />
-  );
-}
+const InputField = ({ type, placeholder, value, onChange }) => {
+  const handleChange = (e) => {
+    onChange(e.target.value);
+  };
 
-export default InputField;
+  return <input className="input-field" type={type} placeholder={placeholder} value={value} onChange={handleChange} />;
+};
+
+export default InputField ;

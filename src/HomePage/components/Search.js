@@ -1,10 +1,11 @@
 // Search.js
-import './Search.css';
-import React from 'react';
 
-function Search() {
+import React from 'react';
+import './Search.css';
+
+function Search({ darkMode }) {
   return (
-    <div className="search">
+    <div className={`search ${darkMode ? 'dark-mode' : ''}`}>
       <input type="text" placeholder="Search" />
       <button>Search</button>
     </div>
