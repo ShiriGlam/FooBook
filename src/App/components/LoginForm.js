@@ -1,6 +1,6 @@
-// LoginForm.js
+
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 import Logo from './Logo';
 import ForgotPassword from './ForgotPassword';
 import CreateAccount from './CreateAccount';
