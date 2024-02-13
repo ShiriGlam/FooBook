@@ -5,7 +5,9 @@ import './CreateAccount.css'
 
 function CreateAccount() {
   return (
-    <p className="create-account">Don't have an account? <SignupLink /></p>
+    <div className="create-account">
+      Don't have an account? <SignupLink />
+    </div>
   );
 }
 

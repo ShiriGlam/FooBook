@@ -14,8 +14,8 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   
   const handleLogin = (e) => {
+    
     e.preventDefault();
-
     if (!username || !password) {
       alert('Please enter both username and password');
      return;

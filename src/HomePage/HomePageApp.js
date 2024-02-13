@@ -1,6 +1,6 @@
-// HomePageApp.js
+
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom'; // Import useParams from react-router-dom
+import { useParams } from 'react-router-dom'; 
 import Header from './components/Header';
 import Share from './components/Share';
 import Search from './components/Search';
