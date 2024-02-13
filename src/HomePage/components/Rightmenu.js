@@ -22,8 +22,12 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange }) {
 
   return (
     <aside className={`right-menu ${darkMode ? 'dark-mode' : ''}`}>
+      <div>
+      <img src={logo} alt="Facebook Logo" className="logo" />
+      </div>
       <img src={profilePhoto} alt="Profile" className="profile-picture-user" />
-      
+
+      <ul>
       <input
         id="profile-picture-upload"
         type="file"
@@ -31,13 +35,14 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange }) {
         onChange={handlePhotoChange}
         className="choose-pic"
       />
-      <img src={logo} alt="Facebook Logo" className="logo" />
-      <ul>
         <li>Profile</li>
         <li>Posts</li>
         <li>Friends</li>
         <li>Groups</li>
       </ul>
+      
+      
+      
       <button className="mode-toggle" onClick={handleModeToggle}>
         {darkMode ? 'Light Mode' : 'Dark Mode'}
       </button>

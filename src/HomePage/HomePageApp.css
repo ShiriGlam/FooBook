@@ -3,39 +3,43 @@
   flex-direction: column;
   align-items: center;
   background-color: #f0f2f5;
-  font-family: Arial, sans-serif; 
+  font-family: Arial, sans-serif;
 }
+
 
 .main-content {
   display: flex;
   justify-content: center;
-  width: 100%; 
-  max-width: 2000px; 
+  width: 100%;
+  width: 1200px; 
   margin-top: 20px;
 }
 
 .left-content {
-  width: 600px;
+  width: 70%;
+  margin-right: 20px;
 }
 
 .right-content {
-  width: 300px; 
+  width: 30%;
 }
 
 .dark-mode {
-  background-color: #18191a; 
-  color: #ffffff; 
+  background-color: #18191a;
+  color: #ffffff;
 }
 
 .search {
-  margin-top: 10px; 
-  width: 100%; 
+  margin-top: 10px;
+  width: 100%;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
+
 .welcome-message {
-  font-size: 24px; 
-  color: #333; 
-  margin-top: 20px; 
-  text-align: center; 
+  font-size: 24px;
+  color: #206dd1;
+  margin-top: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
 }

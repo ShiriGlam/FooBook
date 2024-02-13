@@ -2,33 +2,30 @@
   margin-left: 100px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  margin-bottom: 30px; /* Increase margin bottom */
+  margin-bottom: 30px; 
   padding: 20px;
   background-color: #fff;
   display: center;
-  flex-direction: column; /* Change flex direction to column */
+  flex-direction: column; 
   align-items: center;
 }
 
 .post img {
-  max-width: 100%;
-  max-height: 300px; /* Increase max-height for larger images */
+  max-width: 100%; 
   border-radius: 8px;
-  margin-bottom: 10px; /* Add margin bottom for separation */
-}
+  margin-bottom: 10px;}
 
 .comment-section {
   margin-top: 20px;
 }
 
 .comment-section input[type="text"] {
-  width: calc(100% - 30px); /* Adjust width as needed */
+  width: calc(100% - 30px);
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
   margin-right: 10px;
 }
-
 .comment-section button {
   padding: 8px 12px;
   background-color: #1877f2;
@@ -66,18 +63,17 @@
 .like-button {
   background-color: transparent;
   border: none;
-  color: #0e4c9e; /* Facebook blue */
+  color: #0e4c9e;
   cursor: pointer;
   font-weight: bold;
   margin-right: 8px;
 }
 
 
-
 .delete-button {
   background-color: transparent;
   border: none;
-  color: #f02849; /* Facebook red */
+  color: #2c2a2aac;
   cursor: pointer;
   font-weight: bold;
 }
@@ -87,7 +83,7 @@
   
   border: none;
   border-radius: 5px;
-  color: #4166d6;
+  color: #1d1e2090;
   cursor: pointer;
   font-weight: bold;
   margin-left: 10px;
@@ -101,13 +97,13 @@
   cursor: pointer;
   font-weight: bold;
   margin-left: 10px;
-  padding: 4px 4px;
+  padding: 4px 8px;
 }
 
 .edit-button {
   background-color: transparent;
   border: none;
-  color: #165db9; /* Facebook blue */
+  color: #165db9;
   cursor: pointer;
   font-weight: bold;
   margin-left: 8px;

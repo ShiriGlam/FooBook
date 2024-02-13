@@ -31,15 +31,15 @@ sec-menu ul li:hover {
 sec-menu ul li:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-/* Header.css */
+
 
 header {
-    /* Add styles similar to Facebook header */
+ 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #4267b2; /* Facebook blue */
+    background-color: #4267b2; 
   }
   
   .logo {
