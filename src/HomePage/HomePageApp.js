@@ -12,7 +12,7 @@ import PostsData from './Posts.json';
 function HomePageApp() {
   const [posts, setPosts] = useState(PostsData);
   const [darkMode, setDarkMode] = useState(false);
-  //const [profilePhoto, setProfilePhoto] = useState('https://live.staticflickr.com/65535/53514521001_61cc6ac52e_t.jpg');
+  
   const [profilePhoto, setProfilePhoto] = useState('');
   const [username, setUsername] = useState('');
   const [isProfileExpanded, setIsProfileExpanded] = useState(false);
