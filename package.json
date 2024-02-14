@@ -7,7 +7,7 @@
     "start-test": "concurrently \"npm start\" \"npm test\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll --testMatch **/src/**/*.test.js",
     "eject": "react-scripts eject"
   },
   "repository": {
