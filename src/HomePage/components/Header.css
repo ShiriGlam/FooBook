@@ -1,9 +1,9 @@
 .logo {
-    font-size: 24px;
+    font-size: 25px;
     font-weight: bold;
     margin-right: 20px;
     padding: 8px 15px;
-    color: rgba(15, 58, 177, 0.421);
+    color: rgba(47, 76, 155, 0.421);
     border-radius: 8px;
     height: 50px;
 }
@@ -19,7 +19,6 @@ sec-menu ul li {
     cursor: pointer;
     list-style: none;
     padding: 0;
-    background-color: #4872c6;
     border-radius: 5px;
     color: #fff;
 }
@@ -34,12 +33,12 @@ sec-menu ul li:hover {
 
 
 header {
- 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #4267b2; 
+    border-radius: 10px;
   }
   
   .logo {
