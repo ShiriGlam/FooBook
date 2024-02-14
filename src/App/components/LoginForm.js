@@ -10,19 +10,25 @@ import Divider from './Divider';
 import './LoginForm.css';
 
 function LoginForm() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState(location.state ? location.state.username : ''); 
+  const [password, setPassword] = useState(location.state ? location.state.password : ''); 
   
   const handleLogin = (e) => {
     e.preventDefault();
-
     if (!username || !password) {
       alert('Please enter both username and password');
-     return;
+      return;
     }
+    const userData = JSON.parse(localStorage.getItem('userData'));
 
-    // Directly navigate to the home page upon successful login
-    window.location.href = `/home/${username}`;
+    if (userData && userData.username === username && userData.password === password) {
+      localStorage.setItem('loggedInUser', JSON.stringify({ username: username, profilePhoto: userData.profilePhoto }));
+      window.location.href = '/home';
+    }
+    else {
+      alert('Incorrect username or password');
+    }
+    
   };
 
   return (

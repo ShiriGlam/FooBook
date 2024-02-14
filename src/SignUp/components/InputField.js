@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import InputField from '../../App/components/InputField';
 import './InputField.css';
 
 const FirstNameInput = ({ value, onChange }) => {
@@ -94,6 +93,36 @@ const EmailInput = ({ value, onChange }) => {
     </>
   );
 };
+const UsernameInput = ({ value, onChange }) => {
+  const [error, setError] = useState('');
+
+  const handleChange = (e) => {
+    const inputValue = e.target.value;
+    validate(inputValue); 
+    if (onChange) onChange(inputValue); 
+  };
+
+  const validate = (input) => {
+    if (input.length < 6) {
+      setError('Username must be at least 6 characters long.');
+      return false;
+    }
+    setError('');
+    return true;
+  };
+
+  return (
+    <>
+      <input
+        type="username"
+        placeholder="New Username"
+        value={value} 
+        onChange={handleChange}
+      />
+      {error && <p className="error-message">{error}</p>}
+    </>
+  );
+};
 
 const PasswordInput = ({ value, onChange }) => {
   const [error, setError] = useState('');
@@ -160,4 +189,4 @@ const GenderInput = ({ value, onChange }) => {
   );
 };
 
-export { FirstNameInput, LastNameInput, EmailInput, PasswordInput, DateOfBirthInput, GenderInput };
+export { FirstNameInput, LastNameInput, EmailInput,UsernameInput, PasswordInput, DateOfBirthInput, GenderInput };

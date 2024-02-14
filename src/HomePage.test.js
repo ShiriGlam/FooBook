@@ -1,0 +1,37 @@
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
+import HomePageApp from './HomePage/HomePageApp';
+describe('HomePageApp Tests', () => {
+    test('Renders HomePageApp with username parameter', () => {
+        render(
+            <MemoryRouter initialEntries={['/home/testUser']}>
+                <Routes> { }
+                    <Route path="/home/:username" element={<HomePageApp />} /> {/*  element prop to render the component */}
+                </Routes>
+            </MemoryRouter>
+        );
+
+        expect(screen.getByText('Welcome, testUser!')).toBeInTheDocument();
+    });
+    test('Adds new post and displays it', () => {
+        render(
+            <MemoryRouter initialEntries={['/home/testUser']}>
+                <Routes>{ }
+                    <Route path="/home/:username" element={<HomePageApp />} /> {/*  element prop to render the component */}
+                </Routes>
+            </MemoryRouter>
+        );
+        //adding a new post
+        fireEvent.change(screen.getByPlaceholderText("What's on your mind?"), {
+            target: { value: 'New post content' },
+        });
+        fireEvent.click(screen.getByText('Share'));
+
+        // assert that the new post is displayed
+        expect(screen.getByText('New post content')).toBeInTheDocument();
+
+    });
+
+
+});

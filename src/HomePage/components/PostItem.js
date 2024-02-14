@@ -69,7 +69,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser, pro
           <span>{author}</span>
         <div className="timestamp">{timestamp}</div>
         <div className="like-section">
-          <button className="like-button"onClick={handleLikeClick}>Like</button>
+          <button className="like-button" data-testid={`like-button-post-${id}`} onClick={handleLikeClick}>Like</button>
           <span className={darkMode ? 'dark-mode' : ''}>{likes} Likes</span>
         </div>
         {currentUser === author && (
