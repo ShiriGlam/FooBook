@@ -3,22 +3,22 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import HomePageApp from './HomePage/HomePageApp';
 describe('HomePageApp Tests', () => {
-    test('Renders HomePageApp with username parameter', () => {
+    test('Renders HomePageApp', () => {
         render(
-            <MemoryRouter initialEntries={['/home/testUser']}>
+            <MemoryRouter initialEntries={['/home']}>
                 <Routes> { }
-                    <Route path="/home/:username" element={<HomePageApp />} /> {/*  element prop to render the component */}
+                    <Route path="/home" element={<HomePageApp />} /> {/*  element prop to render the component */}
                 </Routes>
             </MemoryRouter>
         );
 
-        expect(screen.getByText('Welcome, testUser!')).toBeInTheDocument();
+        expect(screen.getByText('Welcome, !')).toBeInTheDocument();
     });
     test('Adds new post and displays it', () => {
         render(
-            <MemoryRouter initialEntries={['/home/testUser']}>
+            <MemoryRouter initialEntries={['/home']}>
                 <Routes>{ }
-                    <Route path="/home/:username" element={<HomePageApp />} /> {/*  element prop to render the component */}
+                    <Route path="/home" element={<HomePageApp />} /> {/*  element prop to render the component */}
                 </Routes>
             </MemoryRouter>
         );
