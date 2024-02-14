@@ -40,3 +40,19 @@
   text-align: center;
   font-family: Arial, sans-serif;
 }
+.expanded-profile-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expanded-profile-image {
+  max-width: 80%; /* Adjust the size of the profile image as needed */
+  max-height: 80%;
+}

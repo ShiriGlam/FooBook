@@ -15,7 +15,7 @@ function HomePageApp() {
   //set default picture:
   const [profilePhoto, setProfilePhoto] = useState('https://live.staticflickr.com/65535/53514521001_61cc6ac52e_t.jpg');
   const { username } = useParams(); 
-
+  const [isProfileExpanded, setIsProfileExpanded] = useState(false);
   const handleLike = (postId) => {
     setPosts(posts.map(post => {
       if (post.id === postId) {
@@ -49,7 +49,9 @@ function HomePageApp() {
       return post;
     }));
   };
-
+  const toggleExpandProfile = () => {
+    setIsProfileExpanded(!isProfileExpanded);
+  };
   return (
     <div className={`home-page ${darkMode ? 'dark-mode' : ''}`}>
       <h1 className="welcome-message">Welcome, {username}!</h1>
@@ -67,13 +69,19 @@ function HomePageApp() {
             currentUser={username} 
             profilePhoto={profilePhoto}
           />
+          
         </div>
         <Rightmenu profilePhoto={profilePhoto}
-          onPhotoChange={handlePhotoChange} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+          onPhotoChange={handlePhotoChange} darkMode={darkMode} toggleDarkMode={toggleDarkMode} toggleExpandProfile={toggleExpandProfile} />
       </div>
+      {isProfileExpanded && (
+        <div className="expanded-profile-view" onClick={toggleExpandProfile}>
+          <img src={profilePhoto} alt="Profile" className="expanded-profile-image" />
+          {/* Add additional content for the expanded profile view if needed */}
+        </div>
+      )}
     </div>
   );
 }
-
 export default HomePageApp;
 

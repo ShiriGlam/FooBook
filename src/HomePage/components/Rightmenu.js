@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './Rightmenu.css';
 import logo from './facebook_logo.png';
 import { Link } from 'react-router-dom';
 
 
-function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange }) {
+function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange,toggleExpandProfile }) {
   const handleModeToggle = () => {
     toggleDarkMode();
   };
@@ -21,7 +21,6 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange }) {
     }
   };
 
-
   const handleGalleryButtonClick = () => {
     if (fileInputRef.current) {
       fileInputRef.current.removeAttribute('accept');
@@ -35,8 +34,9 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange }) {
       <div>
       <img src={logo} alt="Facebook Logo" className="logo" />
       </div>
-      <img src={profilePhoto} alt="Profile" className="profile-picture-user" />
-     
+      <img src={profilePhoto} alt="Profile"  className="profile-picture-user "
+         onClick={toggleExpandProfile} 
+     />
       <button className="gallery-button" onClick={handleGalleryButtonClick}>
         Choose from Gallery
       </button>
@@ -51,7 +51,7 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange }) {
         style={{ display: 'none' }}
       />
       <ul>
-        <li>Profile</li>
+      <li >Profile</li>
         <li>Posts</li>
         <li>Friends</li>
         <li>Groups</li>
