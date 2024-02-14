@@ -11,7 +11,7 @@ function FirstScreen() {
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/" element={<LoginForm />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/home/:username" element={<HomePageApp />} />
+          <Route path="/home" element={<HomePageApp />} />
         </Routes>
       </Router>
     );

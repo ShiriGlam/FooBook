@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; 
 import Header from './components/Header';
 import Share from './components/Share';
@@ -12,10 +12,19 @@ import PostsData from './Posts.json';
 function HomePageApp() {
   const [posts, setPosts] = useState(PostsData);
   const [darkMode, setDarkMode] = useState(false);
-  //set default picture:
-  const [profilePhoto, setProfilePhoto] = useState('https://live.staticflickr.com/65535/53514521001_61cc6ac52e_t.jpg');
-  const { username } = useParams(); 
+  //const [profilePhoto, setProfilePhoto] = useState('https://live.staticflickr.com/65535/53514521001_61cc6ac52e_t.jpg');
+  const [profilePhoto, setProfilePhoto] = useState('');
+  const [username, setUsername] = useState('');
   const [isProfileExpanded, setIsProfileExpanded] = useState(false);
+  useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    if (loggedInUser) {
+      setUsername(loggedInUser.username);
+      setProfilePhoto(loggedInUser.profilePhoto);
+    } else {
+      window.location.href = '/login'; 
+    }
+  }, [])
   const handleLike = (postId) => {
     setPosts(posts.map(post => {
       if (post.id === postId) {

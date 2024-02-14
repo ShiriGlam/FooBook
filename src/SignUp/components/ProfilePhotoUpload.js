@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-
+import "./ProfilePhotoUpload.css"
 const ProfilePhotoUpload = ({ onPhotoSelect }) => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
@@ -14,17 +14,20 @@ const ProfilePhotoUpload = ({ onPhotoSelect }) => {
     <div className="profile-photo-upload">
       <label htmlFor="profilePhoto" className="upload-button">
         {selectedPhoto ? (
-          <img src={URL.createObjectURL(selectedPhoto)} alt="Preview" />
+          <img src={URL.createObjectURL(selectedPhoto)}  className='profile-photo'/>
         ) : (
           <div className="default-photo">
           <span>Choose Profile Photo</span></div>
         )}
         <input
+         className="profile"
           type="file"
           id="profilePhoto"
           accept="image/*"
           onChange={handleFileInputChange}
+          style={{ display: 'none' }}
         />
+      
       </label>
     </div>
   );
