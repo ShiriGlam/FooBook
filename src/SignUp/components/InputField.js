@@ -15,7 +15,7 @@ const FirstNameInput = ({ value, onChange }) => {
 
   const handleChange = (e) => {
     const inputValue = e.target.value;
-    validate(inputValue); // Validate the input value
+    validate(inputValue); // validate the input value
     if (onChange) onChange(inputValue); 
   };
 
@@ -34,6 +34,7 @@ const FirstNameInput = ({ value, onChange }) => {
 
 const LastNameInput = ({ value, onChange }) => {
   const [error, setError] = useState('');
+  // validate the input value
   const validate = (input) => {
     if (input.trim() === '') {
       setError('Please enter your last name.');
@@ -44,6 +45,7 @@ const LastNameInput = ({ value, onChange }) => {
   };
 
   const handleChange = (e) => {
+    
     const inputValue = e.target.value;
     validate(inputValue); 
     if (onChange) onChange(inputValue); 
@@ -70,6 +72,7 @@ const EmailInput = ({ value, onChange }) => {
     validate(inputValue); 
     if (onChange) onChange(inputValue); 
   };
+  // validate the input value
 
   const validate = (input) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
