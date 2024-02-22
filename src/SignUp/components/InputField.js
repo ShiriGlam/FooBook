@@ -36,7 +36,7 @@ const LastNameInput = ({ value, onChange }) => {
   const [error, setError] = useState('');
   // validate the input value
   const validate = (input) => {
-    if (input.trim() === '') {
+    if (input.trim() === '') {//if empty
       setError('Please enter your last name.');
       return false;
     }
@@ -47,7 +47,7 @@ const LastNameInput = ({ value, onChange }) => {
   const handleChange = (e) => {
     
     const inputValue = e.target.value;
-    validate(inputValue); 
+    validate(inputValue); // validate the input value
     if (onChange) onChange(inputValue); 
   };
 
