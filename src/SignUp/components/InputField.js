@@ -47,7 +47,7 @@ const LastNameInput = ({ value, onChange }) => {
   const handleChange = (e) => {
     
     const inputValue = e.target.value;
-    validate(inputValue); 
+    validate(inputValue); // validate the input value
     if (onChange) onChange(inputValue); 
   };
 
