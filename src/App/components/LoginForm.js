@@ -8,28 +8,42 @@ import InputField from './InputField';
 import SubmitButton from './SubmitButton';
 import Divider from './Divider';
 import './LoginForm.css';
+import { useNavigate } from 'react-router-dom';
+
 
 function LoginForm() {
-  const [username, setUsername] = useState(location.state ? location.state.username : ''); 
-  const [password, setPassword] = useState(location.state ? location.state.password : ''); 
-  
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (!username || !password) {
-      alert('Please enter both username and password');
-      return;
-    }
-    const userData = JSON.parse(localStorage.getItem('userData'));
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-    if (userData && userData.username === username && userData.password === password) {
-      localStorage.setItem('loggedInUser', JSON.stringify({ username: username, profilePhoto: userData.profilePhoto }));
-      window.location.href = '/home';
-    }
-    else {
-      alert('Incorrect username or password');
-    }
+  const handleLogin = async (e) => {
+    e.preventDefault();
     
+    try {
+      const response = await fetch('http://localhost:3001/api/tokens', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ username: username, password: password })
+      });
+
+      if (!response.ok) {
+        throw new Error('Invalid credentials');
+      }
+
+      const data = await response.json();
+
+      // Store JWT token in HTTP-only cookie
+      document.cookie = `token=${data.token}; path=/;`;
+      
+      navigate('/home');
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred while logging in. Please try again.');
+    }
   };
+
 
   return (
     <div className="login-box">
