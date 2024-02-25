@@ -1,5 +1,3 @@
-// Header.js
-
 import React from 'react';
 import './Header.css';
 import logo from "./facebook_logo.png"

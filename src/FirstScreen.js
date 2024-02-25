@@ -4,6 +4,8 @@ import LoginForm from './App/components/LoginForm'; // Import the LoginForm comp
 import SignUpForm from './SignUp/components/SignUpForm'; // Import the SignUpForm component
 import HomePageApp from './HomePage/HomePageApp';
 
+
+
 function FirstScreen() {
     return (
         <Router>
@@ -12,6 +14,7 @@ function FirstScreen() {
           <Route path="/" element={<LoginForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/home" element={<HomePageApp />} />
+        
         </Routes>
       </Router>
     );
