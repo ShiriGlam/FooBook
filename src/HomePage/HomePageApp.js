@@ -15,6 +15,9 @@ function HomePageApp() {
   const [userProfile, setUserProfile] = useState(null);
   const [feedPosts, setFeedPosts] = useState([]);
   const [userId, setUserId] = useState('');
+  const handleUsernameChange = (newUsername) => {
+    setUsername(newUsername);
+  };
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
@@ -38,7 +41,7 @@ function HomePageApp() {
     };
     
     const fetchFeedPosts = async () => {
-     /**  try {
+       try {
         // Fetching user data to get the current user's ID or username
         const userDataResponse = await fetch('http://localhost:3001/api/users/profile', {
           headers: {
@@ -68,7 +71,7 @@ function HomePageApp() {
         setFeedPosts(data); // Update feedPosts state with fetched data
       } catch (error) {
         console.error('Error fetching feed posts:', error);
-      }*/
+      }
     };
     fetchUserProfile();
     fetchFeedPosts();
@@ -220,6 +223,8 @@ function HomePageApp() {
         </div>
         <Rightmenu
           profilePhoto={profilePhoto}
+          username={username}
+          onUsernameChange={handleUsernameChange} 
           onPhotoChange={handlePhotoChange}
           darkMode={darkMode}
           toggleDarkMode={toggleDarkMode}

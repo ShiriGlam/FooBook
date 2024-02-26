@@ -11,7 +11,14 @@
   .right-menu ul {
     list-style: none;
 }
-
+.right-menu {
+  width: 250px; /* Adjust the width as needed */
+  height: 100%; /* Make the menu take up the full height of its container */
+  overflow-y: auto; /* Add vertical scroll if content exceeds the height */
+  padding: 20px; /* Add padding for better spacing */
+  background-color: #f0f2f5; /* Example background color */
+  border-right: 1px solid #ccc; /* Example border on the right side */
+}
 .right-menu ul li {
     margin-bottom: 10px;
     height: 150px;
@@ -52,4 +59,30 @@
     cursor: pointer;
   }
 
- 
+  button {
+    background-color: #1877f2;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #166fe5;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  input[type="file"] {
+    display: none; /* Hide the default file input button */
+  }
+  
+  .custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  
+  .custom-file-upload:hover {
+    background-color: #f0f0f0;
+  }

@@ -3,7 +3,7 @@ import './PostItem.css';
 
 function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser, profilePhoto  }) {
   console.log('Post:', post);
-  const { _id, userId, author,photo, content, likes, comments, createdAt } = post.post;
+  const { _id, userId, author,photo, content, likes, comments, createdAt } = post;
   const [isEditing, setIsEditing] = useState(false);
   const [editedPhoto, setEditedPhoto] = useState(photo);
   const [editedContent, setEditedContent] = useState(content);
@@ -120,9 +120,8 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser, pro
           throw new Error('Failed to add comment');
         }
   
-        const newCommentData = await response.json();
-  
-        // Update the comment list with the newly added comment
+        const newupdatepost = await response.json();
+        const newCommentData = newupdatepost.comments[newupdatepost.comments.length - 1];        // Update the comment list with the newly added comment
         setPostComments([...postComments, newCommentData]);
         setCommentInput('');
       }
@@ -192,15 +191,15 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser, pro
         />
         <button onClick={handleCommentSubmit}>Comment</button>
         <ul>
-          {postComments && postComments.map(comment => (
-            <li key={comment.id}>
-              {/* Display profile photo if available */}
-              {comment.profilePicture && <img src={comment.profilePicture} alt="Profile" className="profile-picture" />}
-              <span>{comment.author}: </span>
-              {comment.content}
-            </li>
-          ))}
-        </ul>
+  {postComments && postComments.map(comment => (
+    <li key={comment.id}>
+      {/* Display profile photo if available */}
+      {comment.profilePicture && <img src={comment.profilePicture} alt="Profile" className="profile-picture" />}
+      <span>{comment.author}: </span>
+      {comment.content} {/* This line should display the comment content */}
+    </li>
+  ))}
+</ul>
       </div>
     </div>
   );
