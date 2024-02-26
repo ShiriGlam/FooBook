@@ -1,17 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import './PostItem.css';
 
-function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser, profilePhoto  }) {
+function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,userid, profilePhoto  }) {
   console.log('Post:', post);
-  const { _id, userId, author,photo, content, likes, comments, createdAt } = post;
+  const {_id,  userId, author,photo, content, likes, comments, createdAt } = post;
   const [isEditing, setIsEditing] = useState(false);
   const [editedPhoto, setEditedPhoto] = useState(photo);
   const [editedContent, setEditedContent] = useState(content);
   const [commentInput, setCommentInput] = useState('');
   const [postComments, setPostComments] = useState(comments);
-
+  const [isFriend, setIsFriend] = useState(true);
  const timestamp=createdAt;
  const profilePicture=profilePhoto;
+ const handleSendRequest = async () => {
+  try {
+    const response = await axios.post(`http://localhost:3001/api/users/${userId}/friends/request`, {
+      friendId: currentUser // Assuming currentUser is the ID of the current user
+    });
+
+    if (response.status === 200) {
+      alert('Friendship request sent successfully');
+    }
+  } catch (error) {
+    console.error('Error sending friendship request:', error);
+    alert('Failed to send friendship request');
+  }
+};
+
  function getCookie(name) {
   const cookies = document.cookie.split(';');
   for (let i = 0; i < cookies.length; i++) {
@@ -28,7 +43,37 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser, pro
 
   const handleLikeClick = () => {
     onLike(_id);
-    likes.length++;
+    if (likes){
+          likes.length++;
+
+    }else{
+      
+    }
+  };
+  useEffect(() => {
+    // Fetch list of friends for the current user
+    fetchFriends();
+  }, []);
+
+  const fetchFriends = async () => {
+    try {
+      const token = getCookie('token');
+      const response = await fetch(`http://localhost:3001/api/users/${userid}/friends`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      if (response.ok) {
+        const friendList = await response.json();
+        // Check if the author of the post is among the friends
+        const isFriend = friendList.some(friend => friend.userId === userid);
+        setIsFriend(!isFriend);
+       
+      }
+    } catch (error) {
+      console.error('Error fetching friends:', error);
+    }
   };
 
   const handleDeleteClick = () => {
@@ -141,10 +186,14 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser, pro
           <img src={profilePhoto} alt="Profile" className="profile-picture" />
         )}
         <span>{author}</span>
+        {!isFriend && (
+          <button className="send-request-button" onClick={handleSendRequest}>Send Friend Request</button>
+        )}
         <div className="timestamp">{timestamp}</div>
         <div className="like-section">
           <button className="like-button" onClick={handleLikeClick}>Like</button>
-          <span className={darkMode ? 'dark-mode' : ''}>{likes.length} Likes</span>
+          
+          <span className={darkMode ? 'dark-mode' : ''}>{likes&&likes.length} Likes</span>
         </div>
         {author === currentUser && (
   <div className="post-actions">

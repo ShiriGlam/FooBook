@@ -218,6 +218,7 @@ function HomePageApp() {
   onUpdate={updatePost}
   darkMode={darkMode}
   currentUser={username} // Pass the username
+  userid={userId}
   profilePhoto={profilePhoto}
 />
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import './PostContainer.css';
 import PostItem from './PostItem'; // Assuming PostItem is in the same directory
-function PostsContainer({ posts, onLike, onDelete, onUpdate, darkMode, currentUser, profilePhoto }) {
+function PostsContainer({ posts, onLike, onDelete, onUpdate, darkMode, currentUser,userid, profilePhoto }) {
   if (!posts || posts.length === 0) {
     return <div>No posts to display.</div>;
   }
@@ -19,6 +19,7 @@ function PostsContainer({ posts, onLike, onDelete, onUpdate, darkMode, currentUs
             onUpdate={onUpdate} 
             darkMode={darkMode}
             currentUser={currentUser} 
+            userid={userid}
             profilePhoto={profilePhoto} 
           />
         ))}
