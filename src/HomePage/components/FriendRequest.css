@@ -1,0 +1,64 @@
+.friend-requests-container {
+	margin-top: 20px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+  }
+  
+  .friend-request-item {
+	margin-bottom: 10px;
+  }
+  
+  .friend-request-item .username {
+	font-weight: bold;
+  }
+  
+  .friend-request-item .actions {
+	margin-top: 5px;
+  }
+  
+  .friend-request-item .actions button {
+	margin-right: 5px;
+	padding: 5px 10px;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+  }
+  
+  .friend-request-item .actions button.accept {
+	background-color: #4caf50;
+	color: #fff;
+  }
+  
+
+  .friend-requests-container {
+	max-height: 200px; /* Fixed height for the container */
+	overflow-y: auto; /* Enable vertical scrolling */
+	border: 1px solid #ccc; /* Optional: Add border for visual clarity */
+	border-radius: 5px; /* Optional: Add border radius for rounded corners */
+	position:center; /* Position the container */
+	top: 10px; /* Adjust top position as needed */
+	left: 0; /* Align with the left side of the parent container */
+	right: 0; /* Align with the right side of the parent container */
+	margin: auto; /* Center horizontally */
+  }
+  
+ 
+  .friend-requests-list {
+	margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom:10px;
+    font-size: 25px;
+    color: #2f2424;
+    cursor: pointer;
+    margin-left: 2px;
+	list-style: none;
+  }
+  .friend-requests-list ul {
+	list-style: none;
+  }
+  
+  .friend-requests-list li {
+	margin-bottom: 10px;
+  }

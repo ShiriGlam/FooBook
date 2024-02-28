@@ -9,7 +9,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
   const [editedContent, setEditedContent] = useState(content);
   const [commentInput, setCommentInput] = useState('');
   const [postComments, setPostComments] = useState(comments);
-  const [isFriend, setIsFriend] = useState(false);
+  const [isFriend, setIsFriend] = useState(true);
   const [profilePicture, setProfilePicture] = useState(comments);
 
  const timestamp=createdAt;

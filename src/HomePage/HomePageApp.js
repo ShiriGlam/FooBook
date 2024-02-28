@@ -33,8 +33,8 @@ function HomePageApp() {
         const data = await response.json();
         setUsername(data.username);
         setProfilePhoto(data.profilePhoto);
-        setUserProfile(data);
         setUserId(data._id);
+        console.log("username" ,username)
       } catch (error) {
         console.error('Error fetching user profile:', error);
       }
@@ -119,7 +119,6 @@ function HomePageApp() {
   
       // Update the feed with the newly created post
       setFeedPosts([newPostData, ...feedPosts]);
-     
   
       return newPostData; // Return the newly created post data
     } catch (error) {
@@ -211,6 +210,7 @@ function HomePageApp() {
         <Rightmenu
           profilePhoto={profilePhoto}
           username={username}
+          userId={userId}
           onUsernameChange={handleUsernameChange} 
           onPhotoChange={handlePhotoChange}
           darkMode={darkMode}

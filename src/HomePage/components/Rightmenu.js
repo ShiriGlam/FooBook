@@ -4,12 +4,14 @@ import './Rightmenu.css';
 import logo from './facebook_logo.png';
 import { Link } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import FriendRequests from './FriendRequest'
+import { useEffect } from 'react';
 
-function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, username, onUsernameChange, toggleExpandProfile }) {
+function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, username, userid ,onUsernameChange, toggleExpandProfile }) {
   const handleModeToggle = () => {
     toggleDarkMode();
   };
-
+  const [userId, setUserId] = useState(userid);
   const [newUsername, setNewUsername] = useState('');
   const [newProfilePhoto, setNewProfilePhoto] = useState(null); // State for new profile photo
   const getCookie = (name) => {
@@ -22,6 +24,7 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, user
     }
     return '';
   };
+
 
   const handleChange = (e) => {
     setNewUsername(e.target.value);
@@ -43,8 +46,8 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, user
     try {
       const token = getCookie('token');
       const decodedToken = jwtDecode(token);
-      const userId = decodedToken.id;
-
+      const userId_ = decodedToken.id;
+      setUserId(userId_)
       const requestBody = {};
       if (newUsername) {
         requestBody.username = newUsername;
@@ -55,6 +58,7 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, user
       if (newProfilePhoto && typeof newProfilePhoto === 'string') {
         requestBody.profilePhoto = newProfilePhoto;
       }
+      
 
       const response = await fetch(`http://localhost:3001/api/users/${userId}`, {
         method: 'PUT',
@@ -68,10 +72,6 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, user
       if (!response.ok) {
         throw new Error('Failed to update user details');
       }
-
-      // Assuming the user details are updated successfully
-      // Trigger any necessary state updates or notifications
-
       // Reset form fields
       setNewUsername('');
       setNewProfilePhoto(null);
@@ -97,12 +97,15 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, user
         <input type="file" onChange={handlePhotoChange} />
         <button type="submit">Update Details</button>
       </form>
+
+      <FriendRequests userId={userId} /> {/* Pass userId as a prop */}
       <ul>
       <li >Profile</li>
         <li>Posts</li>
-        <li>Friends</li>
         <li>Groups</li>
       </ul>
+      
+      
       
       <button className="mode-toggle" onClick={handleModeToggle}>
         {darkMode ? 'Light Mode' : 'Dark Mode'}
