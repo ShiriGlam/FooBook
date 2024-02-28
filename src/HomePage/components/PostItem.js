@@ -38,16 +38,26 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
 }, []);
  const handleSendRequest = async () => {
   try {
-    const response = await axios.post(`http://localhost:3001/api/users/${userId}/friends/request`, {
-      friendId: currentUser // Assuming currentUser is the ID of the current user
+    const token = getCookie('token'); // Assuming you have a function to retrieve the JWT token
+    const response = await fetch(`http://localhost:3001/api/users/${userid}/friends`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+    
+      body: JSON.stringify({ userId })
     });
 
-    if (response.status === 200) {
-      alert('Friendship request sent successfully');
+    if (!response.ok) {
+      throw new Error('Failed to add membership request');
     }
+
+    console.log('Membership request added successfully');
+    setIsFriend(true)
   } catch (error) {
-    console.error('Error sending friendship request:', error);
-    alert('Failed to send friendship request');
+    console.error('Error adding membership request:', error);
+    console.log(error)
   }
 };
 
