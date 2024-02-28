@@ -9,9 +9,33 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
   const [editedContent, setEditedContent] = useState(content);
   const [commentInput, setCommentInput] = useState('');
   const [postComments, setPostComments] = useState(comments);
-  const [isFriend, setIsFriend] = useState(true);
+  const [isFriend, setIsFriend] = useState(false);
+  const [profilePicture, setProfilePicture] = useState(comments);
+
  const timestamp=createdAt;
- const profilePicture=profilePhoto;
+ useEffect(() => {
+  const fetchUserProfile = async (userId) => {
+    try {
+      const token = getCookie('token');
+      const response = await fetch(`http://localhost:3001/api/users/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch user profile');
+      }
+
+      const userData = await response.json();
+      setProfilePicture(userData.profilePhoto);
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+    }
+  };
+
+  fetchUserProfile(userId);
+}, []);
  const handleSendRequest = async () => {
   try {
     const response = await axios.post(`http://localhost:3001/api/users/${userId}/friends/request`, {
@@ -67,8 +91,8 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
       if (response.ok) {
         const friendList = await response.json();
         // Check if the author of the post is among the friends
-        const isFriend = friendList.some(friend => friend.userId === userid);
-        setIsFriend(!isFriend);
+        const isFriend = friendList.some(friend => friend._id === userId);
+        setIsFriend(isFriend);
        
       }
     } catch (error) {
@@ -183,7 +207,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
         {author === currentUser ? (
           <img src={profilePhoto} alt="Profile" className="profile-picture" />
         ) : (
-          <img src={profilePhoto} alt="Profile" className="profile-picture" />
+          <img src={profilePicture} alt="Profile" className="profile-picture" />
         )}
         <span>{author}</span>
         {!isFriend && (

@@ -5,8 +5,8 @@ import Share from './components/Share';
 import Search from './components/Search';
 import PostsContainer from './components/PostsContainer';
 import Rightmenu from './components/Rightmenu';
-import './HomePageApp.css';
 
+import './HomePageApp.css';
 function HomePageApp() {
   const [darkMode, setDarkMode] = useState(false);
   const [profilePhoto, setProfilePhoto] = useState('');
@@ -22,7 +22,7 @@ function HomePageApp() {
     const fetchUserProfile = async () => {
       try {
         const token = getCookie('token');
-        const response = await fetch('http://localhost:3001/api/users/profile', {
+        const response = await fetch(`http://localhost:3001/api/profile`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -42,22 +42,8 @@ function HomePageApp() {
     
     const fetchFeedPosts = async () => {
        try {
-        // Fetching user data to get the current user's ID or username
-        const userDataResponse = await fetch('http://localhost:3001/api/users/profile', {
-          headers: {
-            Authorization: `Bearer ${getCookie('token')}`
-          }
-        });
-    
-        if (!userDataResponse.ok) {
-          throw new Error('Failed to fetch user data');
-        }
-    
-        const userData = await userDataResponse.json();
-        const currentUserId = userData._id; // Assuming the user ID is available in the response
-    
         // Fetching feed posts for the current user's friends
-        const response = await fetch(`http://localhost:3001/api/users/${currentUserId}/posts`, {
+        const response = await fetch(`http://localhost:3001/api/posts`, {
           headers: {
             Authorization: `Bearer ${getCookie('token')}`
           }
