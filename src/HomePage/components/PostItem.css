@@ -9,7 +9,34 @@
   flex-direction: column; 
   align-items: center;
 }
+.send-request-button{
+  background-color: #1877f2;
+  border-radius: 4px;
+  color: #333;
+  padding: 2px 4px;
+  margin-top: 10px;
+  opacity: 0.7; 
+  width: 100px;
+  margin-left: 400px;
+ 
+}
+.already-sent {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+  padding: 2px 4px;
+  margin-top: 10px;
+  opacity: 0.7; 
+  width: 100px;
+  margin-left: 400px;
+  margin-top: 0px;
+  transition: opacity 0.3s ease-in-out; 
+}
 
+.already-sent:hover {
+  opacity: 1; 
+}
 .post img {
   max-width: 100%; 
   border-radius: 8px;

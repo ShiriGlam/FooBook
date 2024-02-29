@@ -17,13 +17,27 @@
 }
 
 .search button {
-    padding: 8px 16px;
-    background-color: #4267b2;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+
+
+  
+        background-color: #5b91d8;
+        color: #fff;
+        cursor: pointer;
+        padding: 5px 20px; 
+       border-radius: 3px;
+        cursor: pointer;
+        font-size: 15px;
+      }
+      
+      button:hover {
+        background-color: #166fe5;
+      }
+      
+      .link:hover {
+        text-decoration: underline;
+      }
+    
+  
 .search.dark-mode input[type="text"] {
     /* Dark mode styles for input */
     color: #fff;

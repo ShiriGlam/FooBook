@@ -10,6 +10,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
   const [commentInput, setCommentInput] = useState('');
   const [postComments, setPostComments] = useState(comments);
   const [isFriend, setIsFriend] = useState(true);
+  const [isSendRequest, setIsSendRequest] = useState(false);
   const [profilePicture, setProfilePicture] = useState(comments);
 
  const timestamp=createdAt;
@@ -54,7 +55,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
     }
 
     console.log('Membership request added successfully');
-    setIsFriend(true)
+    setIsSendRequest(true)
   } catch (error) {
     console.error('Error adding membership request:', error);
     console.log(error)
@@ -73,6 +74,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
 }
   useEffect(() => {
     setPostComments(comments);
+    
   }, [comments]);
 
   const handleLikeClick = () => {
@@ -88,6 +90,10 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
     // Fetch list of friends for the current user
     fetchFriends();
   }, []);
+  useEffect(() => {
+    fetchFriendsRequest();
+  }, []);
+  
 
   const fetchFriends = async () => {
     try {
@@ -103,13 +109,33 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
         // Check if the author of the post is among the friends
         const isFriend = friendList.some(friend => friend._id === userId);
         setIsFriend(isFriend);
-       
       }
     } catch (error) {
       console.error('Error fetching friends:', error);
     }
+    
   };
+  const fetchFriendsRequest = async () => {
+    try {
+      const token = getCookie('token');
+      const response = await fetch(`http://localhost:3001/api/users/${userId}/friend-requests`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
 
+      if (response.ok) {
+        const friendRequestsList = await response.json();
+        console.log(friendRequestsList.pendingRequests);
+        // Check if the author of the post is among the friends
+        const isSend = friendRequestsList.pendingRequests.includes(userid);
+        setIsSendRequest(isSend);
+       
+      }
+    } catch (error) {
+      console.error('Error fetching requsts:', error);
+    }
+  };
   const handleDeleteClick = () => {
     onDelete(_id);
   };
@@ -220,8 +246,10 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
           <img src={profilePicture} alt="Profile" className="profile-picture" />
         )}
         <span>{author}</span>
-        {!isFriend && (
+        {!isFriend && !isSendRequest ? (
           <button className="send-request-button" onClick={handleSendRequest}>Send Friend Request</button>
+        ):(isSendRequest && 
+          <p className="already-sent">you already sent request</p> 
         )}
         <div className="timestamp">{timestamp}</div>
         <div className="like-section">
