@@ -93,8 +93,6 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
   useEffect(() => {
     fetchFriendsRequest();
   }, []);
-  
-
   const fetchFriends = async () => {
     try {
       const token = getCookie('token');

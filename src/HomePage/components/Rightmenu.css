@@ -64,10 +64,10 @@
     background-color: #5b91d8;
     color: #fff;
     cursor: pointer;
-    padding: 3px 5px; 
+    padding: 5px 8px; 
 	 border-radius: 3px;
 	  cursor: pointer;
-	  font-size: 10px;
+	  font-size: 12px;
   }
   
   button:hover {
