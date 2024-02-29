@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './PostItem.css';
-
+import FriendFeed from './FriendFeed';
 function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,userid, profilePhoto  }) {
   console.log('Post:', post);
   const {_id,  userId, author,photo, content, likes, comments, createdAt } = post;
@@ -12,7 +12,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
   const [isFriend, setIsFriend] = useState(true);
   const [isSendRequest, setIsSendRequest] = useState(false);
   const [profilePicture, setProfilePicture] = useState(comments);
-
+  const [showFriendFeed, setShowFriendFeed] = useState(false);
  const timestamp=createdAt;
  useEffect(() => {
   const fetchUserProfile = async (userId) => {
@@ -171,7 +171,15 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
     }
   };
   
-  
+  const handleFriendClick = () => {
+    // Check if the author is a friend
+    if (isFriend) {
+      setShowFriendFeed(true);
+    } else {
+      // Logic to handle if the author is not a friend (optional)
+      console.log(`${author} is not your friend.`);
+    }
+  };
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -236,14 +244,16 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
 
   return (
     <div className={`post ${darkMode ? 'dark-mode' : ''}`}>
-      <div className="post-info">
+      <div className="post-info"onClick={handleFriendClick}>
         {/* Display profile photo and name of the author */}
         {author === currentUser ? (
           <img src={profilePhoto} alt="Profile" className="profile-picture" />
         ) : (
           <img src={profilePicture} alt="Profile" className="profile-picture" />
         )}
-        <span>{author}</span>
+      <div className="author">
+  <p>{author}</p>
+</div>
         {!isFriend && !isSendRequest ? (
           <button className="send-request-button" onClick={handleSendRequest}>Send Friend Request</button>
         ):(isSendRequest && 
@@ -252,7 +262,6 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
         <div className="timestamp">{timestamp}</div>
         <div className="like-section">
           <button className="like-button" onClick={handleLikeClick}>Like</button>
-          
           <span className={darkMode ? 'dark-mode' : ''}>{likes&&likes.length} Likes</span>
         </div>
         {author === currentUser && (
@@ -302,13 +311,13 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
         <ul>
   {postComments && postComments.map(comment => (
     <li key={comment.id}>
-      {/* Display profile photo if available */}
+      {}
       {comment.profilePicture && <img src={comment.profilePicture} alt="Profile" className="profile-picture" />}
       <span>{comment.author}: </span>
-      {comment.content} {/* This line should display the comment content */}
+      {comment.content} {}
     </li>
   ))}
-</ul>
+</ul>{showFriendFeed && <FriendFeed friendId={userId} onLike={onLike} onClose={() => setShowFriendFeed(false)} />}
       </div>
     </div>
   );

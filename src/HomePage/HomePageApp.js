@@ -191,7 +191,7 @@ function HomePageApp() {
   return (
     <div className={`home-page ${darkMode ? 'dark-mode' : ''}`}>
       <h1 className="welcome-message">Welcome, {username}!</h1>
-      {userId && <Header userId={userId} />} {/* Pass userId to Header if it's available */}
+      {userId && <Header userId={userId} onLike={handleLike} />} {/* Pass userId to Header if it's available */}
       <div className="main-content">
         <div className="left-content">
           <Search darkMode={darkMode} />

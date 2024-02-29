@@ -1,11 +1,13 @@
-
+import FriendFeed from './FriendFeed';
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 import logo from "./facebook_logo.png"
 import { jwtDecode } from 'jwt-decode';
-function Header() {
+function Header({userId, onLike}) {
   const [showFriendList, setShowFriendList] = useState(false);
   const [friendList, setFriendList] = useState([]);
+  const [selectedFriendId, setSelectedFriendId] = useState(null);
+  const [showFriendFeed, setShowFriendFeed] = useState(false);
   const friendListRef = useRef(null);
   const token = getCookie('token');
   const decodedToken = jwtDecode(token);
@@ -90,9 +92,15 @@ function Header() {
       }
     } else {
       setShowFriendList(false);
+      
     }
+   
   };
-
+ const handleFriendListItemClick = (friendId) => {
+      setShowFriendFeed(true);
+      setSelectedFriendId(friendId);
+    };
+ 
   return (
     <header>
       <img src={logo} alt="Facebook Logo" className="logo" />
@@ -102,17 +110,19 @@ function Header() {
   <div className="friend-list" ref={friendListRef}>
     <h3>Friends</h3>
     <ul>
-      {friendList.map(friend => (
-        <li key={friend.id}>
-          <img src={friend.profilePhoto} alt={friend.userName} className="friend-photo" />
-          {friend.userName}
-        </li>
-      ))}
-    </ul>
-  </div>
-)}
+            {friendList.map(friend => (
+              <li key={friend.id} onClick={() => handleFriendListItemClick(friend.id)}>
+                <img src={friend.profilePhoto} alt={friend.userName} className="friend-photo" />
+                {friend.userName}
+              </li>
+            ))}
+          </ul> 
+        </div>
+      )}{showFriendFeed && selectedFriendId && (
+        <FriendFeed friendId={selectedFriendId._id} onClose={() => setShowFriendFeed(false)} onLike={onLike} />
+      )}
     </header>
-  
+
   );
 }
 
@@ -123,7 +133,8 @@ function SecMenu({ onFriendClick }) {
       <ul>
         <li>Home</li>
         <li>Profile</li>
-        <li onClick={onFriendClick}>Friends</li>
+        <li onClick={() => onFriendClick()}>Friends</li>
+
       </ul>
     </sec-menu>
   );

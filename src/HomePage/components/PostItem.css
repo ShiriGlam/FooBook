@@ -9,6 +9,10 @@
   flex-direction: column; 
   align-items: center;
 }
+.post-image {
+  width: 400px;
+  height: 500px;
+}
 .send-request-button{
   background-color: #1877f2;
   border-radius: 4px;
@@ -37,10 +41,6 @@
 .already-sent:hover {
   opacity: 1; 
 }
-.post img {
-  max-width: 100%; 
-  border-radius: 8px;
-  margin-bottom: 10px;}
 
 .comment-section {
   margin-top: 20px;
@@ -134,4 +134,13 @@
   cursor: pointer;
   font-weight: bold;
   margin-left: 8px;
+}
+.post-info {
+
+  cursor: pointer; 
+}
+
+.author:hover {
+  text-decoration: underline;
+  color: blue;
 }
