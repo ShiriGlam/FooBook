@@ -187,6 +187,58 @@ function HomePageApp() {
   const toggleExpandProfile = () => {
     setIsProfileExpanded(!isProfileExpanded);
   };
+  const handleDeleteAccount = async () => {
+    try {
+      const token = getCookie('token');
+      // Fetch all posts belonging to the user
+      const response = await fetch(`http://localhost:3001/api/users/${userId}/posts`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to fetch user posts');
+      }
+  
+      const posts = await response.json();
+      
+      // Delete each post
+      await Promise.all(posts.map(async post => {
+        const deleteResponse = await fetch(`http://localhost:3001/api/posts/${post._id}`, {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        
+        if (!deleteResponse.ok) {
+          throw new Error('Failed to delete user posts');
+        }
+      }));
+  
+      // Delete the user account
+      const userDeleteResponse = await fetch(`http://localhost:3001/api/users/${userId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+  
+      if (!userDeleteResponse.ok) {
+        throw new Error('Failed to delete user account');
+      }
+  
+      // Handle successful deletion
+      console.log('User account and posts deleted successfully');
+      alert('Your account has been deleted successfully. Please log out to complete the process.');
+      // Redirect to login page or perform any other action after successful deletion
+    } catch (error) {
+      console.error('Error deleting user account and posts:', error);
+      // Handle the error appropriately (e.g., display a message to the user)
+    }
+  };
+  
 
   return (
     <div className={`home-page ${darkMode ? 'dark-mode' : ''}`}>
@@ -216,6 +268,7 @@ function HomePageApp() {
           darkMode={darkMode}
           toggleDarkMode={toggleDarkMode}
           toggleExpandProfile={toggleExpandProfile}
+          onDeleteAccount={handleDeleteAccount}
         />
       </div>
       {isProfileExpanded && (

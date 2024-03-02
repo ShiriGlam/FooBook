@@ -1,13 +1,13 @@
-// In your React component
-import React, { useRef, useState } from 'react';
+
+import React, { useState } from 'react';
 import './Rightmenu.css';
 import logo from './facebook_logo.png';
 import { Link } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-import FriendRequests from './FriendRequest'
-import { useEffect } from 'react';
+import FriendRequests from './FriendRequest';
+import DropdownMenu from './DropdownMenu';
+function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, username, userid ,onUsernameChange, toggleExpandProfile, onDeleteAccount }) {
 
-function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, username, userid ,onUsernameChange, toggleExpandProfile }) {
   const handleModeToggle = () => {
     toggleDarkMode();
   };
@@ -105,13 +105,12 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, user
         <li>Groups</li>
       </ul>
       
-      
-      
       <button className="mode-toggle" onClick={handleModeToggle}>
         {darkMode ? 'Light Mode' : 'Dark Mode'}
       </button>
       <p><Link to="/login">Log Out</Link></p>
-      {/* Add other menu items here */}
+      {}
+      <DropdownMenu onDeleteAccount={onDeleteAccount} />
     </aside>
   );
 }
