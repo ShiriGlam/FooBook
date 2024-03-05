@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './FriendFeed.css'
-function FriendFeed({ friendId, onClose, onLike }) {
+function FriendFeed({ friendId, onClose }) {
   const [friendPosts, setFriendPosts] = useState([]);
   const [friendInfo, setFriendInfo] = useState(null);
   const [likes, setLikes] = useState(null);
@@ -66,7 +66,6 @@ function FriendFeed({ friendId, onClose, onLike }) {
     fetchUserPosts();
   }, [friendId]);
   const handleLikeClick = (postid) => {
-    onLike(postid);
     if (likes){
           likes.length++;
 
