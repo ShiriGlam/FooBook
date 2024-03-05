@@ -8,6 +8,7 @@ function Header({userId, onLike}) {
   const [friendList, setFriendList] = useState([]);
   const [selectedFriendId, setSelectedFriendId] = useState(null);
   const [showFriendFeed, setShowFriendFeed] = useState(false);
+  const [cancelMessageVisible, setCancelMessageVisible] = useState(false);
   const friendListRef = useRef(null);
   const token = getCookie('token');
   const decodedToken = jwtDecode(token);
@@ -100,7 +101,37 @@ function Header({userId, onLike}) {
       setShowFriendFeed(true);
       setSelectedFriendId(friendId);
     };
- 
+    const handleRemoveFriend = async (friendId) => {
+      try {
+        const token = getCookie('token');
+        const decodedToken = jwtDecode(token);
+        const userId = decodedToken.id;
+        const response = await fetch(`http://localhost:3001/api/users/${userId}/friends/${friendId._id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` 
+          },
+        });
+    
+        if (!response.ok) {
+          throw new Error('Failed to remove friend');
+        }
+    
+        // If successful, update the friend list in the state
+        setFriendList(friendListRef => friendListRef.filter(friend => friend.id !== friendId._id));
+        setCancelMessageVisible(true);
+
+        // Hide the cancel message after 3 seconds
+        setTimeout(() => {
+          setCancelMessageVisible(false);
+        }, 3000);
+      } catch (error) {
+        console.error('Error removing friend:', error);
+        // Handle error
+      }
+    };
+    
   return (
     <header>
       <img src={logo} alt="Facebook Logo" className="logo" />
@@ -109,18 +140,20 @@ function Header({userId, onLike}) {
       {showFriendList && (
   <div className="friend-list" ref={friendListRef}>
     <h3>Friends</h3>
-    <ul>
-            {friendList.map(friend => (
-              <li key={friend.id} onClick={() => handleFriendListItemClick(friend.id)}>
-                <img src={friend.profilePhoto} alt={friend.userName} className="friend-photo" />
-                {friend.userName}
-              </li>
-            ))}
+    <ul>{friendList.map(friend => (
+    <li key={friend.userName}>
+        <img src={friend.profilePhoto} alt={friend.userName} className="friend-photo" />
+        <span className='username-friend' onClick={() => handleFriendListItemClick(friend.id)}>{friend.userName}</span>
+        <button onClick={() => handleRemoveFriend(friend.id)}>Delete Friendship</button>
+        {cancelMessageVisible && <div className="cancel-message">Friendship deleted succesfully</div>}
+    </li>                         
+))}
           </ul> 
         </div>
       )}{showFriendFeed && selectedFriendId && (
         <FriendFeed friendId={selectedFriendId._id} onClose={() => setShowFriendFeed(false)} onLike={onLike} />
-      )}
+      )}     
+
     </header>
 
   );

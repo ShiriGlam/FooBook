@@ -5,7 +5,7 @@ import logo from './facebook_logo.png';
 import { Link } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 import FriendRequests from './FriendRequest';
-import DropdownMenu from './DropdownMenu';
+import DropdownMenu from './DeleteAccount';
 function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, username, userid ,onUsernameChange, toggleExpandProfile, onDeleteAccount }) {
 
   const handleModeToggle = () => {
@@ -77,7 +77,6 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, user
       setNewProfilePhoto(null);
     } catch (error) {
       console.error('Error updating user details:', error);
-      // Handle the error appropriately (e.g., display a message to the user)
     }
   };
 

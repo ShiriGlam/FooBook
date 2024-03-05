@@ -95,11 +95,22 @@ header {
     border-bottom: 1px solid #ddd; /* Separator between list items */
     cursor: pointer; /* Show pointer cursor on hover */
   }
-  
+  .username-friend{
+    font-weight: bold;
+    color: #333; /* Text color */
+  }
+  .username-friend:hover{
+    color: #325383;
+  }
   .friend-list li:hover {
     background-color: #f0f2f5;
   }
-  
+  .cancel-message{
+    border-radius: 4px;
+    color: #333;
+    padding: 2px 4px;
+    margin-top: 10px;
+  }
   .friend-list .profile-photo {
     width: 40px;
     height: 40px;
