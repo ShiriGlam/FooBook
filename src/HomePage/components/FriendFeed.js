@@ -65,12 +65,33 @@ function FriendFeed({ friendId, onClose }) {
 
     fetchUserPosts();
   }, [friendId]);
-  const handleLikeClick = (postid) => {
-    if (likes){
-          likes.length++;
-
-    }else{
-      
+  const handleLikeClick = async (postId) => {
+    try {
+      const token = getCookie('token');
+      const response = await fetch(`http://localhost:3001/api/posts/like/${postId}`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to like post');
+      }
+  
+      // Update the likes count in the UI
+      setFriendPosts(prevPosts =>
+        prevPosts.map(prevPost => {
+          if (prevPost._id === postId) {
+            return { ...prevPost, likes: prevPost.likes + 1 };
+          }
+          return prevPost;
+        })
+      );
+    } catch (error) {
+      console.error('Error liking post:', error);
+      // Handle error
     }
   };
   return (
@@ -88,12 +109,12 @@ function FriendFeed({ friendId, onClose }) {
       <div className="posts">
         {friendPosts.map(post => (
           <div key={post.id} className="post">
-            <img src={post.photo} alt="Post" className="post-image" />
+            {post.photo && < img src={ post.photo} alt="Post" className="post-image" />}
             <div className="post-details">
                <p>{post.content}</p>
               <div className="like-section">
-                <button className="like-button" onClick={handleLikeClick(post.id)}>Like</button>
-                <span>{post.likes && post.likes.length} Likes</span>
+              <button className="like-button" onClick={() =>  handleLikeClick(post._id)}>Like</button>
+                <span>{post.likes} Likes</span>
               </div>
               <div className="comments">
                 <h4>Comments</h4>

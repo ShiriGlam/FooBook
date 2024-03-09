@@ -13,6 +13,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
   const [isSendRequest, setIsSendRequest] = useState(false);
   const [profilePicture, setProfilePicture] = useState(comments);
   const [showFriendFeed, setShowFriendFeed] = useState(false);
+  const [likesCount, setLikesCount] = useState(likes);
  const timestamp=createdAt;
  useEffect(() => {
   const fetchUserProfile = async (userId) => {
@@ -78,13 +79,10 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
   }, [comments]);
 
   const handleLikeClick = () => {
-    onLike(_id);
-    if (likes){
-          likes.length++;
-
-    }else{
-      
-    }
+    onLike(_id); // This will handle the like operation on the server side
+  
+    // Update the likes count locally
+    setLikesCount(prevLikes => prevLikes + 1);
   };
   useEffect(() => {
     // Fetch list of friends for the current user
@@ -244,14 +242,14 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
 
   return (
     <div className={`post ${darkMode ? 'dark-mode' : ''}`}>
-      <div className="post-info"onClick={handleFriendClick}>
+      <div className="post-info">
         {/* Display profile photo and name of the author */}
         {author === currentUser ? (
           <img src={profilePhoto} alt="Profile" className="profile-picture" />
         ) : (
           <img src={profilePicture} alt="Profile" className="profile-picture" />
         )}
-      <div className="author">
+      <div className="author" onClick={handleFriendClick}>
   <p>{author}</p>
 </div>
         {!isFriend && !isSendRequest ? (
@@ -262,7 +260,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
         <div className="timestamp">{timestamp}</div>
         <div className="like-section">
           <button className="like-button" onClick={handleLikeClick}>Like</button>
-          <span className={darkMode ? 'dark-mode' : ''}>{likes&&likes.length} Likes</span>
+          <span className={darkMode ? 'dark-mode' : ''}>{likesCount} Likes</span>
         </div>
         {author === currentUser && (
   <div className="post-actions">
