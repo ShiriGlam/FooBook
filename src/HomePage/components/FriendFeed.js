@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './FriendFeed.css'
+import { jwtDecode } from 'jwt-decode';
+
 function FriendFeed({ friendId, onClose }) {
   const [friendPosts, setFriendPosts] = useState([]);
   const [friendInfo, setFriendInfo] = useState(null);
+  const [commentInput, setCommentInput] = useState('');
   const [islike, setLikes] = useState(false);
   function getCookie(name) {
     const cookies = document.cookie.split(';');
@@ -93,11 +96,48 @@ function FriendFeed({ friendId, onClose }) {
         setLikes(true);
       } catch (error) {
         console.error('Error liking post:', error);
-        // Handle error
+       
       }
     }
     
    
+  };
+  const handleCommentSubmit = async (postId) => {
+    try {
+      const token = getCookie('token');
+      const decodedToken = jwtDecode(token);
+      const usernmame= decodedToken.username; 
+      const response = await fetch(`http://localhost:3001/api/posts/comment/${postId}`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: commentInput }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to add comment');
+      }
+
+      // Update the UI with the new comment
+      setFriendPosts(prevPosts =>
+        prevPosts.map(prevPost => {
+          if (prevPost._id === postId) {
+            return {
+              ...prevPost,
+              comments: [...prevPost.comments, { content: commentInput, author: usernmame }]
+            };
+          }
+          return prevPost;
+        })
+      );
+
+      // Clear the comment input field
+      setCommentInput('');
+    } catch (error) {
+      console.error('Error adding comment:', error);
+    }
   };
   return (
     <div className="friend-feed">
@@ -124,10 +164,17 @@ function FriendFeed({ friendId, onClose }) {
               <div className="comments">
                 <h4>Comments</h4>
                 <ul>
-                  {post.comments.map(comment => (
-                    <li key={comment.author}>{comment.content}<p >{comment.createdAt}</p></li>
+                  {post.comments.map((comment, index) => (
+                    <li key={index}>{comment.author} :{comment.content} </li>
                   ))}
                 </ul>
+                <input
+                  type="text"
+                  placeholder="Add a comment..."
+                  value={commentInput}
+                  onChange={(e) => setCommentInput(e.target.value)}
+                />
+                <button onClick={() => handleCommentSubmit(post._id)}>Comment</button>
               </div>
               
             </div>
