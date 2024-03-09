@@ -3,7 +3,7 @@ import './FriendFeed.css'
 function FriendFeed({ friendId, onClose }) {
   const [friendPosts, setFriendPosts] = useState([]);
   const [friendInfo, setFriendInfo] = useState(null);
-  const [likes, setLikes] = useState(null);
+  const [islike, setLikes] = useState(false);
   function getCookie(name) {
     const cookies = document.cookie.split(';');
     for (let i = 0; i < cookies.length; i++) {
@@ -66,33 +66,38 @@ function FriendFeed({ friendId, onClose }) {
     fetchUserPosts();
   }, [friendId]);
   const handleLikeClick = async (postId) => {
-    try {
-      const token = getCookie('token');
-      const response = await fetch(`http://localhost:3001/api/posts/like/${postId}`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      });
-  
-      if (!response.ok) {
-        throw new Error('Failed to like post');
+    if(!islike){
+      try {
+        const token = getCookie('token');
+        const response = await fetch(`http://localhost:3001/api/posts/like/${postId}`, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        });
+    
+        if (!response.ok) {
+          throw new Error('Failed to like post');
+        }
+    
+        // Update the likes count in the UI
+        setFriendPosts(prevPosts =>
+          prevPosts.map(prevPost => {
+            if (prevPost._id === postId) {
+              return { ...prevPost, likes: prevPost.likes + 1 };
+            }
+            return prevPost;
+          })
+        );
+        setLikes(true);
+      } catch (error) {
+        console.error('Error liking post:', error);
+        // Handle error
       }
-  
-      // Update the likes count in the UI
-      setFriendPosts(prevPosts =>
-        prevPosts.map(prevPost => {
-          if (prevPost._id === postId) {
-            return { ...prevPost, likes: prevPost.likes + 1 };
-          }
-          return prevPost;
-        })
-      );
-    } catch (error) {
-      console.error('Error liking post:', error);
-      // Handle error
     }
+    
+   
   };
   return (
     <div className="friend-feed">

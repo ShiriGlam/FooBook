@@ -13,6 +13,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
   const [isSendRequest, setIsSendRequest] = useState(false);
   const [profilePicture, setProfilePicture] = useState(comments);
   const [showFriendFeed, setShowFriendFeed] = useState(false);
+  const [islike, setLikes] = useState(false);
   const [likesCount, setLikesCount] = useState(likes);
  const timestamp=createdAt;
  useEffect(() => {
@@ -79,10 +80,14 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
   }, [comments]);
 
   const handleLikeClick = () => {
-    onLike(_id); // This will handle the like operation on the server side
+    if(!islike){
+      onLike(_id); // This will handle the like operation on the server side
   
     // Update the likes count locally
     setLikesCount(prevLikes => prevLikes + 1);
+    setLikes(true);
+    }
+    
   };
   useEffect(() => {
     // Fetch list of friends for the current user
