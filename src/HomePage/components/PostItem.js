@@ -81,7 +81,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
 
   const handleLikeClick = () => {
     if(!islike){
-      onLike(_id); // This will handle the like operation on the server side
+      onLike(_id); 
   
     // Update the likes count locally
     setLikesCount(prevLikes => prevLikes + 1);
@@ -192,7 +192,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
   
         const token = getCookie('token');
         const response = await fetch(`http://localhost:3001/api/posts/${_id}`, {
-          method: 'PATCH', // Use PATCH method to update the post
+          method: 'PATCH', 
           headers: {
             Authorization: `Bearer ${token}`
           },
@@ -204,7 +204,7 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
         }
   
         // Fetch the updated post data after updating photo
-        const updatedPostData = await fetchPostData(); // You need to implement fetchPostData function to fetch updated post data
+        const updatedPostData = await fetchPostData(); 
         setEditedPhoto(updatedPostData.photo);
       } catch (error) {
         console.error('Error updating post photo:', error);

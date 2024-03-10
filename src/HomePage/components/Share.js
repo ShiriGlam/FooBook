@@ -4,7 +4,8 @@ import './Share.css';
 function Share({ onPost, darkMode }) {
   const [content, setContent] = useState('');
   const [photo, setPhoto] = useState(null);
- 
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handlePhotoChange = (event) => {
     const selectedPhoto = event.target.files[0];
     if (selectedPhoto) {
@@ -17,11 +18,14 @@ function Share({ onPost, darkMode }) {
     }
   };
   const handleAddPhotoClick = () => {
-    // Programmatically trigger the file input click event
     document.getElementById('photo-input').click();
   };
   const handleSubmit = async () => {
     try {
+      if (content.trim() === '') {
+        setErrorMessage('Content cannot be empty');
+        return;
+      }
       // Call the onPost function passed from the parent component
       await onPost({
          
@@ -34,6 +38,7 @@ function Share({ onPost, darkMode }) {
       setPhoto(null);
     } catch (error) {
       console.error('Error creating post:', error);
+
     }
   };
 
@@ -46,16 +51,17 @@ function Share({ onPost, darkMode }) {
         onChange={(e) => setContent(e.target.value)}
         className={darkMode ? 'dark-mode' : ''}
       ></textarea>
-      {photo && <img src={photo} alt="Selected" />} {/* Display selected photo */}
+      {photo && <img src={photo} alt="Selected" />} {}
       <input
         id="photo-input"
         type="file"
         accept="image/*"
         onChange={handlePhotoChange}
-        style={{ display: 'none' }} // Hide the file input
+        style={{ display: 'none' }} 
       />
       <button onClick={handleAddPhotoClick}>Add Photo</button>
       <button onClick={handleSubmit}>Share</button>
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
     </div>
   );
 }
