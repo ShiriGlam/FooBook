@@ -1,0 +1,92 @@
+.friend-feed {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 110%;
+	max-width: 900px;
+	height: 100%;
+	max-height: 100vh; 
+	overflow-y: auto; 
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  .user-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+  }
+  
+  .user-profile-pic {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+  }
+  
+  .posts {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px;
+  }
+  
+  .post {
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	overflow: hidden;
+  }
+  
+  .post-image {
+	width: 100%;
+	height: auto;
+	border-bottom: 1px solid #ddd;
+  }
+  
+  .post-details {
+	padding: 20px;
+  }
+  
+  .post-photo {
+	width: 100%;
+	height: auto;
+	border-radius: 10px 10px 0 0;
+  }
+  
+  .comments,
+  .likes {
+	margin-top: 20px;
+  }
+  
+  .comments h4,
+  .likes h4 {
+	margin-bottom: 10px;
+  }
+  
+  .comments ul,
+  .likes ul {
+	list-style: none;
+	padding: 0;
+  }
+  
+  .comments li,
+  .likes li {
+	margin-bottom: 5px;
+  }
+  
+  .close-btn {
+	background-color: #f44336;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+  }
+  
+  .close-btn:hover {
+	background-color: #d32f2f;
+  }
+  

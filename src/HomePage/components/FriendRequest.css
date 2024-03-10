@@ -1,0 +1,73 @@
+
+  
+  .friend-request-item .username {
+	font-weight: bold;
+	position: right;
+  }
+  
+
+  .friend-request-item .actions {
+	margin-top: 5px;
+  }
+  
+  
+
+  .friend-requests-container {
+	max-height: 200px; 
+	overflow-y: auto; 
+	border: 1px solid #ccc; 
+	border-radius: 5px; 
+	position:center; 
+	top: 10px; 
+	left: 0; 
+	right: 0; 
+	margin: auto; 
+	margin-top: 30px;
+	padding: 1px;
+  }
+  .friend-request-item {
+	display: flex;
+	flex-direction: column; 
+  }
+  .profile-photo {
+	width: 40px; 
+	height: 40px; 
+	border-radius: 50%; 
+	margin-right: 5px; 
+  }
+  .username {
+	margin-right: 8px;
+	font-size: 15px; 
+	margin-right: 5px;
+  }
+  .user-request {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+  }
+  
+  .friend-request-item {
+	display: flex;
+	
+  }
+  .friend-requests-list {
+	margin-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom:5px;
+    font-size: 25px;
+    color: #2f2424;
+    cursor: pointer;
+    margin-left: 2px;
+	list-style: none;
+  }
+  .friend-requests ul {
+	list-style: none;
+	
+  }
+
+
+  .friend-requests-list li {
+	margin-bottom: 1px;
+  } .friend-requests-list li:hover {
+    color: #1877f2; 
+  }

@@ -34,18 +34,45 @@ const SignUpForm = () => {
       profilePhoto !== null
     );
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      const userData = { firstName, lastName, email, username, password, profilePhoto };
-      localStorage.setItem('userData', JSON.stringify(userData));
-      window.location.href = '/login';
-      
-      alert('Form submitted successfully! Opening Log in...');
+      const userData = {
+        firstName,
+        lastName,
+        email,
+        username,
+        password,
+        profilePhoto
+      };
+
+      try {
+        console.log(userData);
+        const response = await fetch('http://localhost:3001/api/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        
+          body: JSON.stringify(userData)
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error);
+        }
+
+        alert('User created successfully! Redirecting to login...');
+        window.location.href = '/login';
+      } catch (error) {
+        console.error('Error:', error.message);
+        alert('An error occurred while creating the user. Please try again later.');
+      }
     } else {
       alert('Please fill in all required fields and upload a profile photo.');
     }
   };
+
 
   return (
     <div className="signup-box">
