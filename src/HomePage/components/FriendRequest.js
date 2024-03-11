@@ -110,7 +110,7 @@ function FriendRequests({ userId }) {
 
   return (
     <div className="friend-requests-list">
-      <li onClick={handleFetchRequests}>Friend Requests</li>
+      <li onClick={handleFetchRequests}>Click to see Friend Requests</li>
       {friendRequests !== null && (
         <div className="friend-requests-container">
           {isLoading ? (
