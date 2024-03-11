@@ -40,7 +40,7 @@ function LoginForm() {
       navigate('/home');
     } catch (error) {
       console.error(error);
-      alert('An error occurred while logging in. Please try again.');
+      alert('password or username incorrect');
     }
   };
 
