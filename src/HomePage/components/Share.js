@@ -12,7 +12,8 @@ function Share({ onPost, darkMode }) {
       const reader = new FileReader();
       reader.onloadend = () => {
         const photoData = reader.result;
-        setPhoto(photoData); // Set the photo variable with the base64 data of the selected photo
+        // Set the photo variable with the base64 data of the selected photo
+        setPhoto(photoData); 
       };
       reader.readAsDataURL(selectedPhoto);
     }

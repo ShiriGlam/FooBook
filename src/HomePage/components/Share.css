@@ -36,8 +36,10 @@
   
 
   .share.dark-mode textarea {
-    color: #e6e1e1; /* White text color */
-    background-color: #333; /* Dark background color */
+     /* White text color */
+    color: #e6e1e1;
+     /* Dark background color */
+    background-color: #333;
     border-color: #666;
   }
   
@@ -46,7 +48,7 @@
     background-color: #333; /* Dark background color */
 }
 .selected-photo {
-  max-width: 10px; /* Ensure the image doesn't exceed the container width */
-  max-height: 40px; /* Set a maximum height for better presentation */
-  margin-top: 10px; /* Add some margin for separation */
+  max-width: 10px; 
+  max-height: 40px; 
+  margin-top: 10px; 
 }

@@ -42,7 +42,7 @@ function Search({ darkMode}) {
       setSearchedUser(userData);
 
       // Check if the searched user is already a friend
-      const isFriend = await checkIfFriend( userData._id); // Assuming checkIfFriend is implemented
+      const isFriend = await checkIfFriend( userData._id); 
 
       if (isFriend) {
         setShowFriendFeed(true);

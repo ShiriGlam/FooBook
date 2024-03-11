@@ -13,7 +13,7 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, user
   };
   const [userId, setUserId] = useState(userid);
   const [newUsername, setNewUsername] = useState('');
-  const [newProfilePhoto, setNewProfilePhoto] = useState(null); // State for new profile photo
+  const [newProfilePhoto, setNewProfilePhoto] = useState(null); 
   const getCookie = (name) => {
     const cookies = document.cookie.split(';');
     for (let i = 0; i < cookies.length; i++) {
@@ -97,7 +97,7 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, user
         <button type="submit">Update Details</button>
       </form>
 
-      <FriendRequests userId={userId} /> {/* Pass userId as a prop */}
+      <FriendRequests userId={userId} /> {}
       <ul>
       <li >Profile</li>
         <li>Posts</li>
