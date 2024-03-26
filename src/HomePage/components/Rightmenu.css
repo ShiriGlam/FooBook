@@ -78,7 +78,7 @@
     text-decoration: underline;
   }
   input[type="file"] {
-    display: none; /* Hide the default file input button */
+    display: none; 
   }
   
   .custom-file-upload {

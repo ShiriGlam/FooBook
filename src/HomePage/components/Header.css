@@ -92,12 +92,12 @@ header {
     display: flex;
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd; /* Separator between list items */
-    cursor: pointer; /* Show pointer cursor on hover */
+    border-bottom: 1px solid #ddd;
+    cursor: pointer; 
   }
   .username-friend{
     font-weight: bold;
-    color: #333; /* Text color */
+    color: #333; 
   }
   .username-friend:hover{
     color: #325383;
@@ -120,7 +120,7 @@ header {
   
   .friend-list .username {
     font-weight: bold;
-    color: #333; /* Text color */
+    color: #333; 
   }
   .friend-list li:last-child {
     border-bottom: none;

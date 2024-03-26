@@ -235,9 +235,30 @@ function PostItem({ post, onLike, onDelete, onUpdate, darkMode, currentUser,user
         }
   
         const newupdatepost = await response.json();
-        const newCommentData = newupdatepost.comments[newupdatepost.comments.length - 1];        // Update the comment list with the newly added comment
-        setPostComments([...postComments, newCommentData]);
-        setCommentInput('');
+        const newCommentData = newupdatepost.comments[newupdatepost.comments.length - 1];   
+        // Fetch the profile photo of the comment author
+      const authorResponse = await fetch(`http://localhost:3001/api/users/${newCommentData.userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      if (!authorResponse.ok) {
+        throw new Error('Failed to fetch comment author profile');
+      }
+
+      const authorData = await authorResponse.json();
+
+      // Add the profile photo to the comment data
+      const commentWithProfile = {
+        ...newCommentData,
+        profilePicture: authorData.profilePhoto
+      };
+
+      // Update the comment list with the newly added comment
+      setPostComments([...postComments, commentWithProfile]);
+      setCommentInput('');     // Update the comment list with the newly added comment
+       
       }
     } catch (error) {
       console.error('Error adding comment:', error);

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './PostContainer.css';
-import PostItem from './PostItem'; // Assuming PostItem is in the same directory
+import PostItem from './PostItem'; 
 function PostsContainer({ posts, onLike, onDelete, onUpdate, darkMode, currentUser,userid, profilePhoto }) {
   if (!posts || posts.length === 0) {
     return <div>No posts to display.</div>;
