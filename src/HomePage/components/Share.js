@@ -24,7 +24,8 @@ function Share({ onPost, darkMode }) {
   const handleSubmit = async () => {
     try {
       if (content.trim() === '') {
-        setErrorMessage('Content cannot be empty');
+        setErrorMessage('');
+        alert('Content cannot be empty');
         return;
       }
       // Call the onPost function passed from the parent component
@@ -38,8 +39,8 @@ function Share({ onPost, darkMode }) {
       setContent('');
       setPhoto(null);
     } catch (error) {
-      console.error('Error creating post:', error);
-
+      console.error( error);
+      alert(error);
     }
   };
 

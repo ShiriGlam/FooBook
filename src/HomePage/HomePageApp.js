@@ -112,17 +112,19 @@ function HomePageApp() {
       });
   
       if (!response.ok) {
-        throw new Error('Failed to create post');
+        throw new Error('The content contains a suspicious URL');
+        
       }
   
       const newPostData = await response.json();
-  
+      
       // Update the feed with the newly created post
       setFeedPosts([newPostData, ...feedPosts]);
   
       return newPostData; // Return the newly created post data
     } catch (error) {
-      console.error('Error creating post:', error);
+      console.error( error);
+      alert(error);
       throw error;
     }
   };
