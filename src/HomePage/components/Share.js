@@ -40,7 +40,8 @@ function Share({ onPost, darkMode }) {
       setPhoto(null);
     } catch (error) {
       console.error( error);
-      alert(error);
+      setContent('');
+      setPhoto(null);
     }
   };
 
