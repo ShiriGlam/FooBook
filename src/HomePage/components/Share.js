@@ -39,9 +39,10 @@ function Share({ onPost, darkMode }) {
       setContent('');
       setPhoto(null);
     } catch (error) {
-      console.error( error);
+      alert(error);
       setContent('');
       setPhoto(null);
+      return
     }
   };
 

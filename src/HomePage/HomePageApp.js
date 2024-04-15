@@ -76,7 +76,7 @@ function HomePageApp() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to update post');
+        throw new Error('The content contains a suspicious URL');
       }
 
       const updatedPostData = await response.json();
@@ -85,6 +85,7 @@ function HomePageApp() {
       setFeedPosts(feedPosts.map(post => post._id === postId ? updatedPostData : post));
     } catch (error) {
       console.error('Error updating post:', error);
+      alert(error);
     }
   };
 
@@ -124,7 +125,7 @@ function HomePageApp() {
       return newPostData; // Return the newly created post data
     } catch (error) {
       console.error( error);
-      alert(error);
+      
       throw error;
     }
   };
