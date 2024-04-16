@@ -9,11 +9,12 @@
 
 
 ![alt text](<Screenshuts/צילום מסך 2024-04-16 104259.png>)
-> Clicking the register button will take you to the login page for verification:
+> Clicking the "signup" button will take you to the login page for verification:
 
 ![alt text](<Screenshuts/צילום מסך 2024-04-16 104327.png>)
 
 
 ![alt text](<Screenshuts/צילום מסך 2024-04-16 104409.png>)
+> the home page will display!
 
 ![alt text](<Screenshuts/צילום מסך 2024-04-16 104455.png>)
