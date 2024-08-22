@@ -34,7 +34,7 @@ function HomePageApp() {
         setUsername(data.username);
         setProfilePhoto(data.profilePhoto);
         setUserId(data._id);
-        console.log("username" ,username)
+        console.log(data)
       } catch (error) {
         console.error('Error fetching user profile:', error);
       }
@@ -146,7 +146,7 @@ function HomePageApp() {
     
       // Update the feed with the newly updated post data
       setFeedPosts(feedPosts.map(post => post._id === postId ? updatedPostData : post));
-      console.log(updatedPostData );
+      //console.log(updatedPostData );
     } catch (error) {
       console.error('Error liking post:', error);
     }
@@ -176,9 +176,9 @@ function HomePageApp() {
   
       // Remove the deleted post from the UI
       
-      console.log('Before deletion:', feedPosts);
+      //console.log('Before deletion:', feedPosts);
       setFeedPosts(feedPosts.filter(post => post._id !== postId));
-     console.log('After deletion:', feedPosts);
+     //console.log('After deletion:', feedPosts);
     } catch (error) {
       console.error('Error deleting post:', error);
     }

@@ -1,37 +1,33 @@
-.right-menu {
-    width: 280px; 
-    padding: 20px; 
-    margin-left: 20px;
-    margin-right: 2px;
-    background-color: #f0f2f5; 
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .right-menu ul {
-    list-style: none;
-}
+
+
 .right-menu {
   width: 250px; /* Adjust the width as needed */
   height: 100%; /* Make the menu take up the full height of its container */
-  overflow-y: auto; /* Add vertical scroll if content exceeds the height */
-  padding: 20px; /* Add padding for better spacing */
+  padding:200px 53px; /* Add padding for better spacing */
   background-color: #f0f2f5; /* Example background color */
   border-right: 1px solid #ccc; /* Example border on the right side */
 }
 .right-menu ul li {
-    margin-bottom: 10px;
+    margin-top: 10px;
     height: 200px;
-    margin-bottom:10px;
+    margin-bottom:150px;
     font-size: 25px;
     color: #2f2424;
     cursor: pointer;
-    margin-left: 2px;
+    margin-left: 20px;
 }
   .right-menu ul li:hover {
     color: #1877f2; 
   }
-  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add space between form inputs */
+  }form input[type="text"], form input[type="file"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
   .mode-toggle {
     margin-top: 20px;
     padding: 10px 10px;

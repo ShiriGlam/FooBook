@@ -77,7 +77,7 @@ function FriendRequests({ userId }) {
 
       // Update the list of friend requests after accepting
       setFriendRequests(friendRequests.filter(request => request !== friendId));
-      console.log(friendRequests)
+      //console.log(friendRequests)
     } catch (error) {
       console.error('Error accepting friend request:', error);
       // Handle error

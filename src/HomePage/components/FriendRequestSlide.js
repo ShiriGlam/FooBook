@@ -19,7 +19,7 @@ function FriendRequestSlide({ searchedUser, onClose }) {
 
       if (response.ok) {
         const friendRequestsList = await response.json();
-        console.log(friendRequestsList.pendingRequests);
+        //console.log(friendRequestsList.pendingRequests);
         // Check if the author of the post is among the friends
 		const token = getCookie('token');
 		const decodedToken = jwtDecode(token);

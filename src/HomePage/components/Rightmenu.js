@@ -98,11 +98,6 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, user
       </form>
 
       <FriendRequests userId={userId} /> {}
-      <ul>
-      <li >Profile</li>
-        <li>Posts</li>
-        <li>Groups</li>
-      </ul>
       
       <button className="mode-toggle" onClick={handleModeToggle}>
         {darkMode ? 'Light Mode' : 'Dark Mode'}

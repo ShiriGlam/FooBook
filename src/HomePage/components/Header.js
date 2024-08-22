@@ -2,14 +2,19 @@ import FriendFeed from './FriendFeed';
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 import logo from "./facebook_logo.png"
+import homelogo from "./homelogo.png"
+import friend from "./friendsPic.png"
 import { jwtDecode } from 'jwt-decode';
+import { Link } from 'react-router-dom';
 function Header({userId, onLike}) {
   const [showFriendList, setShowFriendList] = useState(false);
   const [friendList, setFriendList] = useState([]);
   const [selectedFriendId, setSelectedFriendId] = useState(null);
   const [showFriendFeed, setShowFriendFeed] = useState(false);
   const [cancelMessageVisible, setCancelMessageVisible] = useState(false);
+
   const friendListRef = useRef(null);
+ 
   const token = getCookie('token');
   const decodedToken = jwtDecode(token);
    const currentusername = decodedToken.username;
@@ -131,14 +136,16 @@ function Header({userId, onLike}) {
         // Handle error
       }
     };
-    
+     
+
   return (
     <header>
-      <img src={logo} alt="Facebook Logo" className="logo" />
+      <img src={logo} alt="Facebook Logo" className="logopic" />
       <div className="logo">Facebook</div>
       <SecMenu onFriendClick={handleFriendClick} />
       {showFriendList && (
   <div className="friend-list" ref={friendListRef}>
+     <img src={friend} alt="friend Logo" className="friendlogo" />
     <h3>Friends</h3>
     <ul>{friendList.map(friend => (
     <li key={friend.userName}>
@@ -159,16 +166,71 @@ function Header({userId, onLike}) {
   );
 }
 
-function SecMenu({ onFriendClick }) {
+function SecMenu({ onFriendClick }) { 
+   const [profilePic, setprofilePic] = useState(null);
+   const [isProfileExpanded, setIsProfileExpanded] = useState(false); 
+   useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const token = getCookie('token');
+        const decodedToken = jwtDecode(token);
+        const response = await fetch(`http://localhost:3001/api/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch user profile');
+        }
+
+        const data = await response.json();
+        setprofilePic(data.profilePhoto);
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
+
+  function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.startsWith(name + '=')) {
+        return cookie.substring(name.length + 1);
+      }
+    }
+    return '';
+  }
+
+   const toggleExpandProfile = () => {
+    setIsProfileExpanded(!isProfileExpanded);
+  };
   return (
     <sec-menu>
       
       <ul>
-        <li>Home</li>
-        <li>Profile</li>
-        <li onClick={() => onFriendClick()}>Friends</li>
-
+      <li><Link to="/feed"><img src={homelogo} alt=" home Logo" className="homelogo" /> Home</Link></li>
+        <li>
+          <img 
+            src={profilePic} 
+            alt="Profile Pic" 
+            className="pic" 
+            onClick={toggleExpandProfile} 
+            style={{ cursor: 'pointer' }} 
+          />
+          Profile
+        </li>
+        <li onClick={() => onFriendClick()}><img src={friend} alt="friend Logo" className="friendlogo" /> Friends</li>
       </ul>
+      {isProfileExpanded && (
+        <div className="expanded-profile-view" onClick={toggleExpandProfile}>
+          <img src={profilePic} alt="Profile Expanded" className="expanded-profile-image" />
+        </div>
+      )}
+   
     </sec-menu>
   );
 }
