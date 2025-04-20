@@ -150,7 +150,7 @@ function FriendFeed({ friendId, onClose }) {
         )}
         <button className="close-btn" onClick={onClose}>Close</button>
       </div>
-      <h3>Posts by </h3>{friendInfo&& friendInfo.username}
+      <h3>Posts by </h3>{friendInfo && friendInfo.username}
       <div className="posts">
         {friendPosts.map(post => (
           <div key={post.id} className="post">

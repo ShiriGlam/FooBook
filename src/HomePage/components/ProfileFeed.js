@@ -70,34 +70,40 @@ useEffect(() => {
 if (!userDetails) {
   return <div>Loading...</div>;
 }
-
 return (
-  <div className="home">
-	<div className="user-details">
-	  <img src={userDetails.profilePhoto} alt={userDetails.username} className="profile-photo" />
-	  <h2>{userDetails.firstName} {userDetails.lastName}</h2>
-	  <p>Username: {userDetails.username}</p>
-	</div>
-	<div className="user-posts">
-	  <h3>Your Posts</h3>
-	  {userPosts.map((post) => (
-		<div key={post._id} className="post">
-		  {post.photo && <img src={post.photo} alt="Post" className="post-image" />}
-		  <p>{post.content}</p>
-		  <p><strong>{post.likes}</strong> Likes</p>
-		  <div className="comments">
-			<h4>Comments</h4>
-			<ul>
-			  {post.comments.map((comment, index) => (
-				<li key={index}>{comment.author}: {comment.content}</li>
-			  ))}
-			</ul>
-		  </div>
+	<div className={`profile-feed-container`}>
+	  <div className="user-header-card">
+		<img src={userDetails.profilePhoto} alt={userDetails.username} className="profile-photo-big" />
+		<div className="user-info">
+		  <h2>{userDetails.firstName} {userDetails.lastName}</h2>
+		  <p>@{userDetails.username}</p>
+		  <p className="user-stats">
+			📝 {userPosts.length} Posts &nbsp; 👍 {userPosts.reduce((acc, p) => acc + p.likes, 0)} Likes
+		  </p>
 		</div>
-	  ))}
+	  </div>
+  
+	  <div className="user-posts">
+		<h3>Your Posts</h3>
+		{userPosts.map((post) => (
+		  <div key={post._id} className="user-post-card">
+			{post.photo && <img src={post.photo} alt="Post" className="post-image" />}
+			<p className="post-text">{post.content}</p>
+			<p className="post-likes">👍 {post.likes} Likes</p>
+			<div className="comments">
+			  <h4>💬 Comments</h4>
+			  <ul>
+				{post.comments.map((comment, index) => (
+				  <li key={index}><strong>{comment.author}</strong>: {comment.content}</li>
+				))}
+			  </ul>
+			</div>
+		  </div>
+		))}
+	  </div>
 	</div>
-  </div>
-);
+  );
+  
 }
 
 export default ProfileFeed;

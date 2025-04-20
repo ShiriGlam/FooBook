@@ -81,31 +81,33 @@ function RightMenu({ darkMode, toggleDarkMode, profilePhoto, onPhotoChange, user
   };
 
   return (
-    <aside className={`right-menu ${darkMode ? 'dark-mode' : ''}`}>
-      <div>
-        <img src={logo} alt="Facebook Logo" className="logo" />
-      </div>
-      <img src={profilePhoto} alt="Profile" className="profile-picture-user" onClick={toggleExpandProfile} />
-      <button className="gallery-button">
-        <label htmlFor="file-input">Select Photo from Gallery</label>
-        <input id="file-input" type="file" accept="image/*" onChange={handlePhotoChange} style={{ display: 'none' }} />
-      </button>
+<aside className={`right-menu ${darkMode ? 'dark-mode' : ''}`}>
+  <img src={logo} alt="Facebook Logo" className="logo" />
 
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={newUsername} onChange={handleChange} placeholder="Enter new username" />
-        <input type="file" onChange={handlePhotoChange} />
-        <button type="submit">Update Details</button>
-      </form>
+  <div className="profile-section">
+    <img src={profilePhoto} alt="Profile" className="profile-picture-user" onClick={toggleExpandProfile} />
+    <label htmlFor="file-input" className="gallery-button">📸 Upload Photo</label>
+    <input id="file-input" type="file" accept="image/*" onChange={handlePhotoChange} style={{ display: 'none' }} />
+    <h3>{username}</h3>
+  </div>
 
-      <FriendRequests userId={userId} /> {}
-      
-      <button className="mode-toggle" onClick={handleModeToggle}>
-        {darkMode ? 'Light Mode' : 'Dark Mode'}
-      </button>
-      <p><Link to="/login">Log Out</Link></p>
-      {}
-      <DropdownMenu onDeleteAccount={onDeleteAccount} />
-    </aside>
+  <form className="update-form" onSubmit={handleSubmit}>
+    <input type="text" value={newUsername} onChange={handleChange} placeholder="New username" />
+    <input type="file" onChange={handlePhotoChange} />
+    <button type="submit">💾 Save</button>
+  </form>
+
+  <FriendRequests userId={userId} />
+
+  <button className="mode-toggle" onClick={handleModeToggle}>
+    {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+  </button>
+
+  <Link to="/login" className="logout-link">🚪 Log Out</Link>
+
+  <DropdownMenu onDeleteAccount={onDeleteAccount} />
+</aside>
+
   );
 }
 
