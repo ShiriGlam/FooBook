@@ -49,7 +49,7 @@ This platform combines modern web technologies with thoughtful design and intell
 
 ## 📸 Screenshots
 
-| Sign Up| Profile Page |  Feed Page |  Feed Page | Friend Feed
+| Sign Up| Profile Page |  Feed Page |  Feed Page | Friend Feed |
 |-----------|--------------|
 ![sign](./screenshots/Sign.png)| ![feed](./screenshots/feed.png) | ![profile](./screenshots/profile.png) || ![friend](./screenshots/friend.png) |
 
