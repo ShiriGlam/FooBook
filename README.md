@@ -51,7 +51,7 @@ Note: The server is in the repository: "fooServer"
 
 ## 📸 Screenshots
 
-| LogIn| Profile Page |  Feed Page |  Feed Page | Friend Feed |
+ LogIn| Profile Page |  Feed Page |  Feed Page | Friend Feed |
 ![login](./screenshots/Login.png)|![sign](./screenshots/Sign.png)|![sign](./screenshots/Sign.png)| ![feed](./screenshots/feed.png) | ![profile](./screenshots/profile.png) | ![friend](./screenshots/friend.png) |
 
 
