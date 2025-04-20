@@ -6,6 +6,7 @@ An ambitious, full-stack social media web application that *reimagines* how user
 Built as a powerful clone of Facebook – but better 😎  
 This platform combines modern web technologies with thoughtful design and intelligent backend architecture to deliver a real-time, engaging, and safe social experience.
 
+Note: The server is in the repository: "fooServer"
 ---
 
 ## ✨ Key Highlights
@@ -50,27 +51,8 @@ This platform combines modern web technologies with thoughtful design and intell
 
 ## 📸 Screenshots
 
-| Sign Up| Profile Page |  Feed Page |  Feed Page | Friend Feed |
-|-----------|--------------|
-![sign](./screenshots/Sign.png)| ![feed](./screenshots/feed.png) | ![profile](./screenshots/profile.png) || ![friend](./screenshots/friend.png) |
+ LogIn| Profile Page |  Feed Page |  Feed Page | Friend Feed |
+![login](./screenshots/Login.png)|![sign](./screenshots/Sign.png)|![sign](./screenshots/Sign.png)| ![feed](./screenshots/feed.png) | ![profile](./screenshots/profile.png) | ![friend](./screenshots/friend.png) |
 
-> You can also embed a video demo or GIF using Loom or GIFCapture!
-
----
-
-## 📂 Architecture Overview
-
-```text
-Client (React) → REST APIs & WebSocket → Node.js Backend → MongoDB
-                            ↑
-                 Python Scripts for Content Moderation
-=======
-first, we write htmls for the screens and build basic logic for the application... and after I transferred all the code to the structure of react application, build the components and continue to develop the application and added the required features, mainly work on the home page and switching between the screens, the login page and the registration page.
-also wrote tests for the home page and tests for the login page. A total of 6 tests.
-# run the code:
-In order to run the code: npm install npm start
-But with the server, we just want to open in the browser "http://localhost:3001"
-# run the tests:
-In order to run the tests: npm test
 
 
