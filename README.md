@@ -5,6 +5,7 @@ An ambitious, full-stack social media web application that *reimagines* how user
 Built as a powerful clone of Facebook – but better 😎  
 This platform combines modern web technologies with thoughtful design and intelligent backend architecture to deliver a real-time, engaging, and safe social experience.
 
+Note: The server is in the repository: "fooServer"
 ---
 
 ## ✨ Key Highlights
@@ -36,7 +37,7 @@ This platform combines modern web technologies with thoughtful design and intell
 
 **Frontend:**  
 - React.js  
-- TypeScript  
+- javaScript  
 - CSS Modules / Styled Components  
 
 **Backend:**  
