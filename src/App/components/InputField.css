@@ -11,5 +11,5 @@
 
 .input-field:focus {
   outline: none;
-  border-color: #1877f2; /* Facebook blue */
+  border-color: #1877f2;
 }

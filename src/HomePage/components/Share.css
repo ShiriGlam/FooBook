@@ -14,21 +14,36 @@
     font-size: 16px;
     font-family: Arial, sans-serif;
     color: #333;
+    padding: 10px 15px;
+    border: none;
+    background-color: #f0f2f5;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
   }
   
   .share button {
-    padding: 10px 5px;
-    background-color: #4267b2;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    font-size: 16px;
-  }
+      background-color: #5b91d8;
+      color: #fff;
+      cursor: pointer;
+      padding: 10px 20px; 
+     border-radius: 3px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    
+    button:hover {
+      background-color: #166fe5;
+    }
+    
+    .link:hover {
+      text-decoration: underline;
+    }
+  
 
   .share.dark-mode textarea {
-    color: #e6e1e1; /* White text color */
-    background-color: #333; /* Dark background color */
+     /* White text color */
+    color: #e6e1e1;
+     /* Dark background color */
+    background-color: #333;
     border-color: #666;
   }
   
@@ -37,7 +52,7 @@
     background-color: #333; /* Dark background color */
 }
 .selected-photo {
-  max-width: 10px; /* Ensure the image doesn't exceed the container width */
-  max-height: 40px; /* Set a maximum height for better presentation */
-  margin-top: 10px; /* Add some margin for separation */
+  max-width: 10px; 
+  max-height: 40px; 
+  margin-top: 10px; 
 }

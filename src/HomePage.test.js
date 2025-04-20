@@ -7,7 +7,7 @@ describe('HomePageApp Tests', () => {
         render(
             <MemoryRouter initialEntries={['/home']}>
                 <Routes> { }
-                    <Route path="/home" element={<HomePageApp />} /> {/*  element prop to render the component */}
+                    <Route path="/home" element={<HomePageApp />} /> {}
                 </Routes>
             </MemoryRouter>
         );
@@ -18,7 +18,7 @@ describe('HomePageApp Tests', () => {
         render(
             <MemoryRouter initialEntries={['/home']}>
                 <Routes>{ }
-                    <Route path="/home" element={<HomePageApp />} /> {/*  element prop to render the component */}
+                    <Route path="/home" element={<HomePageApp />} /> {}
                 </Routes>
             </MemoryRouter>
         );
