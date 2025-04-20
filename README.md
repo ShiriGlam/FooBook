@@ -1,3 +1,4 @@
+
 # 🔵 Facebook-Inspired Social Media Platform – Reinvented
 
 An ambitious, full-stack social media web application that *reimagines* how users connect, interact, and share moments online.
@@ -56,5 +57,4 @@ Note: The server is in the repository: "fooServer"
 
 ## 📂 Architecture Overview
 
-```text
-Client (React) →  WebSocket → Node.js Backend → MongoDB
+
