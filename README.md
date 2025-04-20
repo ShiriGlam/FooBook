@@ -37,7 +37,7 @@ This platform combines modern web technologies with thoughtful design and intell
 
 **Frontend:**  
 - React.js  
-- TypeScript  
+- JavaScript  
 - CSS Modules / Styled Components  
 
 **Backend:**  
