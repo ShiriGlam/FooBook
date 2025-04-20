@@ -38,7 +38,7 @@ Note: The server is in the repository: "fooServer"
 
 **Frontend:**  
 - React.js  
-- javaScript  
+- JavaScript  
 - CSS Modules / Styled Components  
 
 **Backend:**  
@@ -53,5 +53,6 @@ Note: The server is in the repository: "fooServer"
 
  LogIn| Profile Page |  Feed Page |  Feed Page | Friend Feed |
 ![login](./screenshots/Login.png)|![sign](./screenshots/Sign.png)|![sign](./screenshots/Sign.png)| ![feed](./screenshots/feed.png) | ![profile](./screenshots/profile.png) | ![friend](./screenshots/friend.png) |
+
 
 
