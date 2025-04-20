@@ -50,17 +50,11 @@ Note: The server is in the repository: "fooServer"
 
 ## 📸 Screenshots
 
-| Sign Up| Profile Page |  Feed Page |  Feed Page | Friend Feed |
-|-----------|--------------|
-![sign](./screenshots/Sign.png)| ![feed](./screenshots/feed.png) | ![profile](./screenshots/profile.png) || ![friend](./screenshots/friend.png) |
+| LogIn| Profile Page |  Feed Page |  Feed Page | Friend Feed |
+![login](./screenshots/Login.png)|![sign](./screenshots/Sign.png)|![sign](./screenshots/Sign.png)| ![feed](./screenshots/feed.png) | ![profile](./screenshots/profile.png) | ![friend](./screenshots/friend.png) |
 
-> You can also embed a video demo or GIF using Loom or GIFCapture!
-
----
 
 ## 📂 Architecture Overview
 
 ```text
-Client (React) → REST APIs & WebSocket → Node.js Backend → MongoDB
-                            ↑
-                 Python Scripts for Content Moderation
+Client (React) →  WebSocket → Node.js Backend → MongoDB
